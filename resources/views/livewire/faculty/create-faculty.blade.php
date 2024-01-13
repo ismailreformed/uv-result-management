@@ -1,6 +1,6 @@
 <x-modal>
     <x-slot name="title">
-        Create Faculty
+        {{ $this->form->editMode ? 'Update' : 'Create'}} Faculty
     </x-slot>
 
     <x-slot name="content">

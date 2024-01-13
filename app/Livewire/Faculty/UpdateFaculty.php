@@ -4,9 +4,9 @@ namespace App\Livewire\Faculty;
 
 use App\Livewire\Forms\FacultyForm;
 use App\Models\Faculty;
-use Livewire\Component;
+use LivewireUI\Modal\ModalComponent;
 
-class UpdateFaculty extends Component
+class UpdateFaculty extends ModalComponent
 {
     public FacultyForm $form;
 
@@ -19,10 +19,13 @@ class UpdateFaculty extends Component
     {
         $this->form->update();
 
-        return $this->dispatch('closeModal');
+        $this->dispatch('closeModal');
+
+        return $this->redirect('/faculty');
     }
+
     public function render()
     {
-        return view('livewire.faculty.update-faculty');
+        return view('livewire.faculty.create-faculty');
     }
 }

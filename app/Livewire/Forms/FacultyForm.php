@@ -13,13 +13,14 @@ class FacultyForm extends Form
 
     #[Validate]
     public $name = '';
+    public $editMode = false;
 
     public function rules()
     {
         return [
             'name' => [
                 'required',
-                Rule::unique('faculties')->ignore($this->name),
+                Rule::unique('faculties')->ignore($this->faculty->id),
             ],
         ];
     }
@@ -29,6 +30,7 @@ class FacultyForm extends Form
         $this->faculty = $faculty;
 
         $this->name = $faculty->name;
+        $this->editMode = true;
     }
 
     public function store()

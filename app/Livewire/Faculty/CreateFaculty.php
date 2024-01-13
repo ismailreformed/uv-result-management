@@ -13,7 +13,9 @@ class CreateFaculty extends ModalComponent
     {
         $this->form->store();
 
-        return $this->dispatch('closeModal');
+        $this->dispatch('closeModal');
+
+        return $this->redirect('/faculty');
     }
 
     public function render()
