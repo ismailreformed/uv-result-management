@@ -47,4 +47,8 @@ Route::middleware([
     Route::get('/semesters', function () {
         return view('semester');
     })->name('semesters');
+
+    Route::get('/exams', function () {
+        return view('exam');
+    })->name('exams');
 });
