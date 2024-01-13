@@ -39,4 +39,8 @@ Route::middleware([
     Route::get('/departments', function () {
         return view('department');
     })->name('departments');
+
+    Route::get('/subjects', function () {
+        return view('subject');
+    })->name('subjects');
 });
