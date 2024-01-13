@@ -15,4 +15,10 @@ class Semester extends Model
         'duration_in_month',
         'updated_by_user_id',
     ];
+
+    public function scopeSearch($query, $value){
+        $query->where('name','like',"%{$value}%")
+        ->orWhere('duration_in_month','like', "%{$value}%");
+    }
+
 }

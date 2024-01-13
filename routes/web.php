@@ -43,4 +43,8 @@ Route::middleware([
     Route::get('/subjects', function () {
         return view('subject');
     })->name('subjects');
+
+    Route::get('/semesters', function () {
+        return view('semester');
+    })->name('semesters');
 });

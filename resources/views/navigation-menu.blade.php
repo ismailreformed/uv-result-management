@@ -16,13 +16,16 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('faculties') }}" :active="request()->routeIs('faculties')">
-                        {{ __('Faculty') }}
+                        {{ __('Faculties') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('departments') }}" :active="request()->routeIs('departments')">
-                        {{ __('Department') }}
+                        {{ __('Departments') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('subjects') }}" :active="request()->routeIs('subjects')">
-                        {{ __('Subject') }}
+                        {{ __('Subjects') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('semesters') }}" :active="request()->routeIs('semesters')">
+                        {{ __('Semesters') }}
                     </x-nav-link>
                 </div>
             </div>
