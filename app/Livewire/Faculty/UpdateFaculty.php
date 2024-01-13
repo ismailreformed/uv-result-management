@@ -21,7 +21,7 @@ class UpdateFaculty extends ModalComponent
 
         $this->dispatch('closeModal');
 
-        return $this->redirect('/faculty');
+        return $this->redirect('/faculties');
     }
 
     public function render()

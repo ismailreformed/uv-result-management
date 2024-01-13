@@ -2,18 +2,20 @@
 
 namespace App\Livewire\Forms;
 
-use App\Models\Faculty;
+use App\Models\Department;
 use Illuminate\Validation\Rule;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
-class FacultyForm extends Form
+class
+DepartmentForm extends Form
 {
-    public ?Faculty $faculty;
+    public ?Department $department;
 
     #[Validate]
     public $name = '';
     public $id = '';
+    public $faculty_id = null;
 
     public $editMode = false;
 
@@ -22,17 +24,23 @@ class FacultyForm extends Form
         return [
             'name' => [
                 'required',
-                Rule::unique('faculties')->ignore($this->id),
+                "min:2",
+                Rule::unique('departments')->ignore($this->id),
+            ],
+            'faculty_id' => [
+                'required',
+                'exists:faculties,id'
             ],
         ];
     }
 
-    public function setFaculty(Faculty $faculty)
+    public function setDepartment(Department $department)
     {
-        $this->faculty = $faculty;
+        $this->department = $department;
 
-        $this->name = $faculty->name;
-        $this->id = $faculty->id;
+        $this->name = $department->name;
+        $this->id = $department->id;
+        $this->faculty_id = $department->faculty_id;
         $this->editMode = true;
     }
 
@@ -40,8 +48,9 @@ class FacultyForm extends Form
     {
         $this->validate();
 
-        Faculty::create([
+        Department::create([
             'name' => $this->name,
+            'faculty_id' => $this->faculty_id,
             'created_by_user_id' => auth()->id()
         ]);
 
@@ -52,8 +61,9 @@ class FacultyForm extends Form
     {
         $this->validate();
 
-        $this->faculty->update([
+        $this->department->update([
             'name' => $this->name,
+            'faculty_id' => $this->faculty_id,
             'updated_by_user_id' => auth()->id(),
         ]);
 

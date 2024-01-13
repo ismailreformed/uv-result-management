@@ -32,7 +32,11 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/faculty', function () {
+    Route::get('/faculties', function () {
         return view('faculty');
-    })->name('faculty');
+    })->name('faculties');
+
+    Route::get('/departments', function () {
+        return view('department');
+    })->name('departments');
 });

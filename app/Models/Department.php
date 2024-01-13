@@ -16,6 +16,11 @@ class Department extends Model
         'updated_by_user_id',
     ];
 
+
+    public function scopeSearch($query, $value){
+        $query->where('name','like',"%{$value}%");
+    }
+
     public function faculty()
     {
         return $this->belongsTo(Faculty::class, 'faculty_id', 'id');
