@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('created_by_user_id')->nullable();
             $table->unsignedBigInteger('student_id');
+            $table->unsignedBigInteger('semester_id');
             $table->unsignedBigInteger('subject_id');
             $table->dateTime('enrollment_date')->nullable();
             $table->string('status')->nullable();

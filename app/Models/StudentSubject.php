@@ -12,6 +12,7 @@ class StudentSubject extends Model
     protected $fillable = [
         'created_by_user_id',
         'student_id',
+        'semester_id',
         'subject_id',
         'enrollment_date',
         'status',
@@ -21,6 +22,11 @@ class StudentSubject extends Model
     public function student()
     {
         return $this->hasOne(Student::class, 'student_id', 'id');
+    }
+
+    public function semester()
+    {
+        return $this->hasOne(Semester::class, 'semester_id', 'id');
     }
 
     public function subject()
