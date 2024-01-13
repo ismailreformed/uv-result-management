@@ -16,7 +16,7 @@
                         <button
                             type="submit"
                             class="px-4 py-2 bg-red-500 text-white rounded-lg justify-center items-end"
-                            wire:click="$dispatch('openModal', { component: 'create-faculty-modal' })"
+                            wire:click="$dispatch('openModal', { component: 'faculty.create-faculty' })"
                         >
                             Create Faculty
                         </button>

@@ -1,3 +1,3 @@
 <x-app-layout>
-    <livewire:faculty-component />
+    <livewire:faculty.faculty-component />
 </x-app-layout>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Faculty;
 
 use App\Models\Faculty;
 use Livewire\Attributes\Url;
@@ -47,28 +47,12 @@ class FacultyComponent extends Component
 
     public function render()
     {
-        return view('livewire.faculty-component',
+        return view('livewire.faculty.faculty-component',
             [
                 'faculties' => Faculty::search($this->search)
                     ->orderBy($this->sortBy,$this->sortDir)
                     ->paginate($this->perPage)
             ]
         );
-    }
-
-    public function createFaculty()
-    {
-        $this->validate([
-            'name' => 'required|string|max:255',
-        ]);
-
-        Faculty::create([
-            'name' => $this->name,
-            'created_by_user_id' => auth()->id(),
-            'updated_by_user_id' => auth()->id(),
-        ]);
-
-        $this->name = ''; // Clear the form input after submission
-//        $this->emit('facultyCreated'); // Emit an event for any parent component
     }
 }

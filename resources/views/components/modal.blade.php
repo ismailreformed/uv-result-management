@@ -24,9 +24,11 @@
                 </div>
             </div>
 
-            <div class="flex bg-white px-4 py-3 border-t border-gray-150 justify-end">
-                {{ $buttons }}
-            </div>
+            @if(isset($buttons))
+                <div class="flex bg-white px-4 py-3 border-t border-gray-150 justify-end">
+                    {{ $buttons }}
+                </div>
+            @endif
 
             @if($formAction)
         </form>
