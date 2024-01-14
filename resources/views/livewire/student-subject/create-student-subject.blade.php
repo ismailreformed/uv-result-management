@@ -17,6 +17,7 @@
                             <option value="{{ $student->id }}">{{ $student->name }} - {{$student->roll}}</option>
                         @endforeach
                     </select>
+                    @error('form.student_id') <span class="error text-red-600">{{ $message }}</span> @enderror
                 </div>
 
                 <div class="col-cols-1 items-start">
@@ -30,6 +31,7 @@
                             <option value="{{ $semester->id }}">{{ $semester->name }}</option>
                         @endforeach
                     </select>
+                    @error('form.semester_id') <span class="error text-red-600">{{ $message }}</span> @enderror
                 </div>
 
                 <div class="col-cols-1 items-start">
@@ -43,6 +45,7 @@
                             <option value="{{ $subject->id }}">{{ $subject->name }}</option>
                         @endforeach
                     </select>
+                    @error('form.subject_id') <span class="error text-red-600">{{ $message }}</span> @enderror
                 </div>
             </div>
 

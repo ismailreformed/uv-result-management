@@ -44,8 +44,8 @@
                     <x-nav-link href="{{ route('subjects') }}" :active="request()->routeIs('subjects')">
                         {{ __('Subjects') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('semesters') }}" :active="request()->routeIs('semesters')">
-                        {{ __('Semesters') }}
+                    <x-nav-link href="{{ route('students') }}" :active="request()->routeIs('students')">
+                        {{ __('Students') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('student-subjects') }}" :active="request()->routeIs('student-subjects')">
                         {{ __('Student Subjects') }}

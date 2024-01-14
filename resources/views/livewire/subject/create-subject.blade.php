@@ -17,6 +17,7 @@
                             <option value="{{ $department->id }}">{{ $department->name }}</option>
                         @endforeach
                     </select>
+                    @error('form.department_id') <span class="error text-red-600">{{ $message }}</span> @enderror
                 </div>
 
                 <div class="grid-cols-1">
