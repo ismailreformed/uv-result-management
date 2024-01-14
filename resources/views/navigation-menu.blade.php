@@ -36,6 +36,12 @@
                     <x-nav-link href="{{ route('student-subjects') }}" :active="request()->routeIs('student-subjects')">
                         {{ __('Student Subjects') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('grades') }}" :active="request()->routeIs('grades')">
+                        {{ __('Grades') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('marks') }}" :active="request()->routeIs('marks')">
+                        {{ __('Marks') }}
+                    </x-nav-link>
                 </div>
             </div>
 

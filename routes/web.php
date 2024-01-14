@@ -60,8 +60,15 @@ Route::middleware([
         return view('student-subject');
     })->name('student-subjects');
 
+    Route::get('/grades', function () {
+        return view('grade');
+    })->name('grades');
+
+    Route::get('/marks', function () {
+        return view('mark');
+    })->name('marks');
+
     Route::get('/results', function () {
         return view('result');
     })->name('results');
-
 });

@@ -28,7 +28,7 @@
                         placeholder="Enter department name"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full px-4 p-2 "
                     >
-                    @error('form.name') <span class="error">{{ $message }}</span> @enderror
+                    @error('form.name') <span class="error text-red-600">{{ $message }}</span> @enderror
                 </div>
 
                 <div class="grid-cols-1">
@@ -40,7 +40,7 @@
                         placeholder="Enter subject code"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full px-4 p-2 "
                     >
-                    @error('form.code') <span class="error">{{ $message }}</span> @enderror
+                    @error('form.code') <span class="error text-red-600">{{ $message }}</span> @enderror
                 </div>
 
                 <div class="grid-cols-1">
@@ -52,7 +52,7 @@
                         placeholder="Enter credit hours"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full px-4 p-2 "
                     >
-                    @error('form.credit_hours') <span class="error">{{ $message }}</span> @enderror
+                    @error('form.credit_hours') <span class="error text-red-600">{{ $message }}</span> @enderror
                 </div>
             </div>
 

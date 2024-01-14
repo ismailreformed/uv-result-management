@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('student_id');
             $table->unsignedBigInteger('exam_id');
             $table->unsignedBigInteger('subject_id');
-            $table->string('grade')->nullable();
+            $table->unsignedBigInteger('grade_id')->nullable();
             $table->string('number')->nullable();
             $table->integer('credit_earned')->nullable();
             $table->float('gp_earned')->nullable();

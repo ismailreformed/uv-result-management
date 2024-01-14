@@ -11,17 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('results', function (Blueprint $table) {
+        Schema::create('grades', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('created_by_user_id')->nullable();
-            $table->unsignedBigInteger('student_id');
-            $table->unsignedBigInteger('semester_id');
-            $table->unsignedBigInteger('grade_id')->nullable();
-            $table->integer('credit_earned')->nullable();
-            $table->float('gp_earned')->nullable();
-            $table->float('gpa')->nullable();
-            $table->string('remarks')->nullable();
-            $table->dateTime('published_at')->nullable();
+            $table->string('title')->nullable();
+            $table->string('grade_letter', 3)->nullable();
+            $table->float('grade_point')->nullable();
             $table->unsignedBigInteger('updated_by_user_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
@@ -33,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('results');
+        Schema::dropIfExists('grades');
     }
 };
