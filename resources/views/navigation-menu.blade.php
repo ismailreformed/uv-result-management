@@ -23,21 +23,21 @@
 
                         <x-slot name="content">
                             <!-- Include the First Six Menu Items as Dropdown Items -->
-                            <x-nav-link class="px-4 py-2" href="{{ route('faculties') }}" :active="request()->routeIs('faculties')">
+                            <x-dropdown-link class="px-4 py-2" href="{{ route('faculties') }}" :active="request()->routeIs('faculties')">
                                 {{ __('Faculties') }}
-                            </x-nav-link>
-                            <x-nav-link class="px-4 py-2" href="{{ route('departments') }}" :active="request()->routeIs('departments')">
+                            </x-dropdown-link>
+                            <x-dropdown-link class="px-4 py-2" href="{{ route('departments') }}" :active="request()->routeIs('departments')">
                                 {{ __('Departments') }}
-                            </x-nav-link>
-                            <x-nav-link class="px-4 py-2" href="{{ route('semesters') }}" :active="request()->routeIs('semesters')">
+                            </x-dropdown-link>
+                            <x-dropdown-link class="px-4 py-2" href="{{ route('semesters') }}" :active="request()->routeIs('semesters')">
                                 {{ __('Semesters') }}
-                            </x-nav-link>
-                            <x-nav-link class="px-4 py-2" href="{{ route('exams') }}" :active="request()->routeIs('exams')">
+                            </x-dropdown-link>
+                            <x-dropdown-link class="px-4 py-2" href="{{ route('exams') }}" :active="request()->routeIs('exams')">
                                 {{ __('Exams') }}
-                            </x-nav-link>
-                            <x-nav-link class="px-4 py-2" href="{{ route('grades') }}" :active="request()->routeIs('grades')">
+                            </x-dropdown-link>
+                            <x-dropdown-link class="px-4 py-2" href="{{ route('grades') }}" :active="request()->routeIs('grades')">
                                 {{ __('Grades') }}
-                            </x-nav-link>
+                            </x-dropdown-link>
                         </x-slot>
                     </x-dropdown>
 
