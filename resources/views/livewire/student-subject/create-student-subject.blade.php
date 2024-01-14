@@ -5,8 +5,8 @@
 
     <x-slot name="content">
         <form wire:submit.prevent="save">
-            <div class="grid columns-1 items-start justify-start">
-                <div class="col-start-1 col-end-12  items-start">
+            <div class="grid grid-cols-1 gap-3 items-start justify-start">
+                <div class="grid-cols-1">
                     <h5 class="text-md text-start font-medium text-gray-900">Select Student</h5>
                     <select
                         wire:model="form.student_id"
@@ -18,10 +18,8 @@
                         @endforeach
                     </select>
                 </div>
-            </div>
 
-            <div class="grid columns-1 items-start justify-start mt-3">
-                <div class="col-start-1 col-end-12  items-start">
+                <div class="col-cols-1 items-start">
                     <h5 class="text-md text-start font-medium text-gray-900">Select Semester</h5>
                     <select
                         wire:model="form.semester_id"
@@ -33,10 +31,8 @@
                         @endforeach
                     </select>
                 </div>
-            </div>
 
-            <div class="grid columns-1 items-start justify-start mt-3">
-                <div class="col-start-1 col-end-12  items-start">
+                <div class="col-cols-1 items-start">
                     <h5 class="text-md text-start font-medium text-gray-900">Select Subject</h5>
                     <select
                         wire:model="form.subject_id"

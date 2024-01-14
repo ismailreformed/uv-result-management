@@ -3,16 +3,15 @@
         <div class="mx-auto max-w-screen-xl px-6 lg:px-12">
             <!-- Start coding here -->
             <div class="bg-white dark:bg-gray-800">
-                <div class="grid grid-cols-6 gap-4 items-center  px-4 py-3">
-                    <div class="col-span-2 ">
+                <div class="grid grid-cols-4 gap-4 p-4 justify-end items-end">
+                    <div class="grid-cols-2">
                         <label class="text-md font-medium text-gray-900">Search</label>
                         <input
                             wire:model.live.debounce.300ms="search" type="text"
-                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 "
-                               placeholder="search name, amount etc" required="">
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full px-4 py-2 "
+                            placeholder="search name" required="">
                     </div>
-
-                    <div class="col-span-3 mt-6 ">
+                    <div class="grid-cols-2">
                         <button
                             type="submit"
                             class="px-4 py-2 bg-red-500 text-white rounded-lg justify-center items-end"
