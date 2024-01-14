@@ -2,7 +2,7 @@
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
-            <div class="flex">
+            <div class="flex items-center">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
@@ -12,32 +12,43 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('faculties') }}" :active="request()->routeIs('faculties')">
-                        {{ __('Faculties') }}
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('departments') }}" :active="request()->routeIs('departments')">
-                        {{ __('Departments') }}
-                    </x-nav-link>
+
+                    <x-dropdown align="left" width="60">
+                        <x-slot name="trigger">
+                            <button class="inline-flex items-center px-3 py-2 active:bg-gray-50 transition ease-in-out duration-150">
+                                {{ __('Settings') }}
+                                <x-heroicons::mini.solid.chevron-down class="w-5 h-5" />
+                            </button>
+                        </x-slot>
+
+                        <x-slot name="content">
+                            <!-- Include the First Six Menu Items as Dropdown Items -->
+                            <x-nav-link class="px-4 py-2" href="{{ route('faculties') }}" :active="request()->routeIs('faculties')">
+                                {{ __('Faculties') }}
+                            </x-nav-link>
+                            <x-nav-link class="px-4 py-2" href="{{ route('departments') }}" :active="request()->routeIs('departments')">
+                                {{ __('Departments') }}
+                            </x-nav-link>
+                            <x-nav-link class="px-4 py-2" href="{{ route('semesters') }}" :active="request()->routeIs('semesters')">
+                                {{ __('Semesters') }}
+                            </x-nav-link>
+                            <x-nav-link class="px-4 py-2" href="{{ route('exams') }}" :active="request()->routeIs('exams')">
+                                {{ __('Exams') }}
+                            </x-nav-link>
+                            <x-nav-link class="px-4 py-2" href="{{ route('grades') }}" :active="request()->routeIs('grades')">
+                                {{ __('Grades') }}
+                            </x-nav-link>
+                        </x-slot>
+                    </x-dropdown>
+
                     <x-nav-link href="{{ route('subjects') }}" :active="request()->routeIs('subjects')">
                         {{ __('Subjects') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('semesters') }}" :active="request()->routeIs('semesters')">
                         {{ __('Semesters') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('exams') }}" :active="request()->routeIs('exams')">
-                        {{ __('Exams') }}
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('students') }}" :active="request()->routeIs('students')">
-                        {{ __('Students') }}
-                    </x-nav-link>
                     <x-nav-link href="{{ route('student-subjects') }}" :active="request()->routeIs('student-subjects')">
                         {{ __('Student Subjects') }}
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('grades') }}" :active="request()->routeIs('grades')">
-                        {{ __('Grades') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('marks') }}" :active="request()->routeIs('marks')">
                         {{ __('Marks') }}
