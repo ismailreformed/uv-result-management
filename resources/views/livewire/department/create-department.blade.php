@@ -1,4 +1,4 @@
-<x-modal>
+<x-ui-modal>
     <x-slot name="title">
         {{ $this->form->editMode ? 'Update' : 'Create'}} Department
     </x-slot>
@@ -46,4 +46,4 @@
 {{--    <x-slot name="buttons">--}}
 {{--       --}}
 {{--    </x-slot>--}}
-</x-modal>
+</x-ui-modal>
