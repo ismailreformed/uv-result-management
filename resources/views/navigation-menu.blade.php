@@ -11,13 +11,13 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <div class="hidden space-x-6 sm:-my-px sm:ms-10 sm:flex">
 
                     <x-dropdown align="left" width="60">
                         <x-slot name="trigger">
-                            <button class="inline-flex items-center px-3 py-2 active:bg-gray-50 transition ease-in-out duration-150">
+                            <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
                                 {{ __('Settings') }}
-                                <x-heroicons::mini.solid.chevron-down class="w-5 h-5" />
+                                <x-heroicons::mini.solid.chevron-down class="ms-2 -me-0.5 w-5 h-5" />
                             </button>
                         </x-slot>
 
