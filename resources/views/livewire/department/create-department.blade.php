@@ -32,10 +32,10 @@
                 </div>
             </div>
 
-            <div class="flex items-center justify-center mt-5 ">
+            <div class="flex items-center justify-end mt-5 ">
                 <button
                     type="submit"
-                    class="px-4 py-2 bg-red-600 text-white rounded-lg justify-center items-end"
+                    class="px-4 py-2 bg-blue-600 text-white rounded-lg"
                 >
                     Submit
                 </button>

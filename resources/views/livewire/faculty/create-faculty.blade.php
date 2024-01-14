@@ -19,15 +19,15 @@
                         @error('form.name') <span class="error">{{ $message }}</span> @enderror
                     </div>
                 </div>
-                <div class="grid-cols-1">
+                </div>
+                <div class="flex items-center justify-end mt-5 ">
                     <button
                         type="submit"
-                        class="px-4 py-2 bg-red-600 text-white rounded-lg justify-center items-end"
+                        class="px-4 py-2 bg-blue-600 text-white rounded-lg"
                     >
                         Submit
                     </button>
                 </div>
-            </div>
         </form>
     </x-slot>
 

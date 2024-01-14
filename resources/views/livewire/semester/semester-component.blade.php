@@ -15,7 +15,7 @@
                     <div class="grid-cols-2 ">
                         <button
                             type="submit"
-                            class="px-4 py-2 bg-red-500 text-white rounded-lg justify-center items-end"
+                            class="px-4 py-2 bg-blue-500 text-white rounded-lg justify-center items-end"
                             wire:click="$dispatch('openModal', { component: 'semester.create-semester' })"
                         >
                             Create Semester
@@ -60,14 +60,14 @@
                                         type="submit"
                                         wire:click="$dispatch('openModal', { component: 'semester.update-semester', arguments: { semester: {{ $item->id }} } })"
                                     >
-                                        <x-heroicons::mini.solid.pencil-square class="w-5 h-5 red-text" />
+                                        <x-heroicons::mini.solid.pencil-square class="w-5 h-5 text-blue-600" />
                                     </button>
 
                                     <button
                                         onclick="confirm('Are you sure you want to delete {{ $item->name }} ?') || event.stopImmediatePropagation()"
                                         wire:click="delete({{ $item->id }})"
                                     >
-                                        <x-heroicons::mini.solid.trash class="w-5 h-5 red-text" />
+                                        <x-heroicons::mini.solid.trash class="w-5 h-5 text-red-600" />
                                     </button>
                                 </td>
                             </tr>
