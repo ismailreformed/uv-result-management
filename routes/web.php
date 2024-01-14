@@ -51,4 +51,17 @@ Route::middleware([
     Route::get('/exams', function () {
         return view('exam');
     })->name('exams');
+
+    Route::get('/students', function () {
+        return view('student');
+    })->name('students');
+
+    Route::get('/student-subjects', function () {
+        return view('student-subject');
+    })->name('student-subjects');
+
+    Route::get('/results', function () {
+        return view('result');
+    })->name('results');
+
 });

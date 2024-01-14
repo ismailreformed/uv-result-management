@@ -19,18 +19,23 @@ class StudentSubject extends Model
         'updated_by_user_id',
     ];
 
+
+    public function scopeSearch($query, $value){
+        $query->where('status','like',"%{$value}%");
+    }
+
     public function student()
     {
-        return $this->hasOne(Student::class, 'student_id', 'id');
+        return $this->hasOne(Student::class, 'id', 'student_id');
     }
 
     public function semester()
     {
-        return $this->hasOne(Semester::class, 'semester_id', 'id');
+        return $this->hasOne(Semester::class, 'id', 'semester_id');
     }
 
     public function subject()
     {
-        return $this->hasOne(Subject::class, 'subject_id', 'id');
+        return $this->hasOne(Subject::class, 'id', 'subject_id');
     }
 }

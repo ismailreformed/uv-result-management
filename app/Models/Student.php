@@ -21,6 +21,11 @@ class Student extends Model
         'updated_by_user_id',
     ];
 
+    public function scopeSearch($query, $value){
+        $query->where('name','like',"%{$value}%")->orWhere('roll','like',"%{$value}%");
+    }
+
+
     public function department()
     {
         return $this->belongsTo(Department::class, 'department_id', 'id');
