@@ -54,7 +54,7 @@
                     >
                         <option value="">Select Grade</option>
                         @foreach($grades as $grade)
-                            <option value="{{ $grade->id }}">{{ $subject->grade_letter }}</option>
+                            <option value="{{ $grade->id }}">{{ $grade->grade_letter }}</option>
                         @endforeach
                     </select>
                     @error('form.grade_id') <span class="error text-red-600">{{ $message }}</span> @enderror
