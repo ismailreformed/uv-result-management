@@ -27,7 +27,7 @@ class StudentAutocomplete extends Component
     public function selectStudent($studentId)
     {
         $selectedStudent = Student::find($studentId);
-        $this->query = sprintf('%s - %s', $selectedStudent->name, $selectedStudent->roll);
+        $this->query = sprintf('%s - %s', $selectedStudent->roll, $selectedStudent->name);
         $this->dispatch('studentSelected', $selectedStudent);
     }
 
