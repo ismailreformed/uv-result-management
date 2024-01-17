@@ -28,7 +28,7 @@ class StudentAutocomplete extends Component
     {
         $selectedStudent = Student::find($studentId);
         $this->query = sprintf('%s - %s', $selectedStudent->roll, $selectedStudent->name);
-        $this->dispatch('studentSelected', $selectedStudent);
+        $this->dispatch('student-selected', $selectedStudent);
     }
 
     public function toggleList(bool $value)

@@ -7,11 +7,24 @@ use App\Models\Exam;
 use App\Models\Grade;
 use App\Models\Student;
 use App\Models\Subject;
+use Livewire\Attributes\On;
 use LivewireUI\Modal\ModalComponent;
 
 class CreateMark extends ModalComponent
 {
     public MarkForm $form;
+
+    #[On('student-selected')]
+    public function updateStudentId($student)
+    {
+        $this->form->student_id = $student['id'];
+    }
+
+    #[On('subject-selected')]
+    public function updateSubjectId($subject)
+    {
+        $this->form->subject_id = $subject['id'];
+    }
 
     public function save()
     {
@@ -24,11 +37,9 @@ class CreateMark extends ModalComponent
 
     public function render()
     {
-        $students = Student::all();
-        $subjects = Subject::all();
         $exams = Exam::all();
         $grades = Grade::all();
 
-        return view('livewire.mark.create-mark', compact('students', 'subjects', 'exams', 'grades'));
+        return view('livewire.mark.create-mark', compact( 'exams', 'grades'));
     }
 }

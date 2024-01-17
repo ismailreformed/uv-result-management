@@ -8,15 +8,7 @@
             <div class="grid grid-cols-1 gap-3 items-start justify-start">
                 <div class="grid-cols-1">
                     <h5 class="text-md text-start font-medium text-gray-900">Select Student</h5>
-                    <select
-                        wire:model="form.student_id"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                    >
-                        <option value="">Select Student</option>
-                        @foreach($students as $student)
-                            <option value="{{ $student->id }}">{{ $student->name }} - {{$student->roll}}</option>
-                        @endforeach
-                    </select>
+                    <livewire:student.student-autocomplete />
                     @error('form.student_id') <span class="error text-red-600">{{ $message }}</span> @enderror
                 </div>
 
@@ -24,7 +16,7 @@
                     <h5 class="text-md text-start font-medium text-gray-900">Select Semester</h5>
                     <select
                         wire:model="form.semester_id"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                     >
                         <option value="">Select Semester</option>
                         @foreach($semesters as $semester)
@@ -34,17 +26,9 @@
                     @error('form.semester_id') <span class="error text-red-600">{{ $message }}</span> @enderror
                 </div>
 
-                <div class="col-cols-1 items-start">
+                <div class="grid-cols-1">
                     <h5 class="text-md text-start font-medium text-gray-900">Select Subject</h5>
-                    <select
-                        wire:model="form.subject_id"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                    >
-                        <option value="">Select Subject</option>
-                        @foreach($subjects as $subject)
-                            <option value="{{ $subject->id }}">{{ $subject->name }}</option>
-                        @endforeach
-                    </select>
+                    <livewire:subject.subject-autocomplete />
                     @error('form.subject_id') <span class="error text-red-600">{{ $message }}</span> @enderror
                 </div>
             </div>
@@ -64,3 +48,4 @@
 {{--       --}}
 {{--    </x-slot>--}}
 </x-ui-modal>
+
