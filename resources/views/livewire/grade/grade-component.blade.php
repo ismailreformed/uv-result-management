@@ -12,15 +12,15 @@
                                placeholder="search name" required="">
                     </div>
 
-                    <div class="grid-cols-2 ">
-                        <button
-                            type="submit"
-                            class="px-4 py-2 bg-blue-500 text-white rounded-lg justify-center items-end"
-                            wire:click="$dispatch('openModal', { component: 'grade.create-grade' })"
-                        >
-                            Create Grade
-                        </button>
-                    </div>
+{{--                    <div class="grid-cols-2 ">--}}
+{{--                        <button--}}
+{{--                            type="submit"--}}
+{{--                            class="px-4 py-2 bg-blue-500 text-white rounded-lg justify-center items-end"--}}
+{{--                            wire:click="$dispatch('openModal', { component: 'grade.create-grade' })"--}}
+{{--                        >--}}
+{{--                            Create Grade--}}
+{{--                        </button>--}}
+{{--                    </div>--}}
                 </div>
 
                 <div class="overflow-x-auto">
@@ -43,10 +43,6 @@
                                'name' => 'created_by_user_id',
                                'displayName' => 'Created By'
                            ])
-                            @include('livewire.includes.table-sortable-th',[
-                               'name' => 'created_at',
-                               'displayName' => 'Created'
-                           ])
                             <th scope="col" class="px-4 py-3">
                                 <span class="sr-only">Actions</span>
                             </th>
@@ -59,7 +55,6 @@
                                 <td class="px-4 py-3">{{ $item->grade_letter }}</td>
                                 <td class="px-4 py-3">{{ $item->grade_point }}</td>
                                 <td class="px-4 py-3">{{ $item->created_by_user->name }}</td>
-                                <td class="px-4 py-3">{{ $item->created_at }}</td>
                                 <td class="px-4 py-3 flex items-start justify-center">
                                     <button
                                         type="submit"
@@ -68,12 +63,12 @@
                                         <x-heroicons::mini.solid.pencil-square class="w-5 h-5 text-blue-600" />
                                     </button>
 
-                                    <button
-                                        onclick="confirm('Are you sure you want to delete {{ $item->title }} ?') || event.stopImmediatePropagation()"
-                                        wire:click="delete({{ $item->id }})"
-                                    >
-                                        <x-heroicons::mini.solid.trash class="w-5 h-5 text-red-600" />
-                                    </button>
+{{--                                    <button--}}
+{{--                                        onclick="confirm('Are you sure you want to delete {{ $item->title }} ?') || event.stopImmediatePropagation()"--}}
+{{--                                        wire:click="delete({{ $item->id }})"--}}
+{{--                                    >--}}
+{{--                                        <x-heroicons::mini.solid.trash class="w-5 h-5 text-red-600" />--}}
+{{--                                    </button>--}}
                                 </td>
                             </tr>
                         @endforeach
