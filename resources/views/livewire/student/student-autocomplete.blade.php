@@ -10,7 +10,7 @@
     />
 
     @if($showList)
-        <div class="absolute bg-gray-50 border border-gray-300 w-full mt-1 rounded-sm z-30 max-h-32 overflow-y-scroll">
+        <div class="absolute bg-gray-50 border border-gray-300 shadow shadow-gray-400 w-full mt-1 rounded-sm z-30 max-h-32 overflow-y-scroll">
             @foreach($students as $student)
              <div
                  wire:click="selectStudent({{ $student->id }})"
