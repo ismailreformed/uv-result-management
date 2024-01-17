@@ -6,19 +6,25 @@
     <x-slot name="content">
         <form wire:submit.prevent="save">
             <div class="grid grid-cols-1 gap-3 items-start justify-start">
+{{--                <div class="grid-cols-1">--}}
+{{--                    <h5 class="text-md text-start font-medium text-gray-900">Select Student</h5>--}}
+{{--                    <select--}}
+{{--                        wire:model="form.student_id"--}}
+{{--                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "--}}
+{{--                    >--}}
+{{--                        <option value="">Select Student</option>--}}
+{{--                        @foreach($students as $student)--}}
+{{--                            <option value="{{ $student->id }}">{{ $student->name }} - {{ $student->roll }}</option>--}}
+{{--                        @endforeach--}}
+{{--                    </select>--}}
+{{--                    @error('form.student_id') <span class="error text-red-600">{{ $message }}</span> @enderror--}}
+{{--                </div>--}}
                 <div class="grid-cols-1">
                     <h5 class="text-md text-start font-medium text-gray-900">Select Student</h5>
-                    <select
-                        wire:model="form.student_id"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                    >
-                        <option value="">Select Student</option>
-                        @foreach($students as $student)
-                            <option value="{{ $student->id }}">{{ $student->name }} - {{ $student->roll }}</option>
-                        @endforeach
-                    </select>
+                    <livewire:student.student-autocomplete />
                     @error('form.student_id') <span class="error text-red-600">{{ $message }}</span> @enderror
                 </div>
+
                 <div class="grid-cols-1">
                     <h5 class="text-md text-start font-medium text-gray-900">Select Exam</h5>
                     <select
@@ -76,3 +82,13 @@
 {{--       --}}
 {{--    </x-slot>--}}
 </x-ui-modal>
+
+<script>
+    document.addEventListener('livewire:load', function () {
+        Livewire.on('studentSelected', (selectedStudent) => {
+            // Set the selected student in the Livewire component state
+        @this.set('form.student_id', selectedStudent.id);
+            // You can also update other related fields if needed
+        });
+    });
+</script>
