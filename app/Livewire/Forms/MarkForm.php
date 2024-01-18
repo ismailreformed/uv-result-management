@@ -3,6 +3,7 @@
 namespace App\Livewire\Forms;
 
 use App\Models\Mark;
+use Illuminate\Validation\Rule;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
@@ -38,13 +39,19 @@ MarkForm extends Form
         return [
             'student_id' => 'required|exists:students,id',
             'semester_id' => 'required_with:student_id|exists:semesters,id',
-            'subject_id' => 'required_with:semester_id|exists:subjects,id',
+//            'subject_id' => 'required_with:semester_id|exists:subjects,id',
             'exam_id' => 'required|exists:exams,id',
             'number' => 'nullable|numeric',
             'grade_id' => 'required|exists:grades,id',
             'credit_earned' => 'nullable|numeric',
             'gp_earned' => 'nullable|numeric',
-            'remarks' => 'nullable|string'
+            'remarks' => 'nullable|string',
+            'subject_id' => ['required', 'exists:subjects,id' ,Rule::unique('marks')->where(function ($query) {
+                return $query->where('student_id', $this->student_id)
+                    ->where('semester_id', $this->semester_id)
+                    ->where('subject_id', $this->subject_id)
+                    ->where('exam_id', $this->exam_id);
+            })]
         ];
     }
 
