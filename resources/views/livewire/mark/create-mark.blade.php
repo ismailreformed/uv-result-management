@@ -27,16 +27,10 @@
                 </div>
 
                 <div class="grid-cols-1">
-                    <h5 class="text-md text-start font-medium text-gray-900">Select Subject</h5>
-                    <livewire:subject.subject-autocomplete />
-                    @error('form.subject_id') <span class="error text-red-600">{{ $message }}</span> @enderror
-                </div>
-
-                <div class="grid-cols-1">
                     <h5 class="text-md text-start font-medium text-gray-900">Select Exam</h5>
                     <select
                         wire:model="form.exam_id"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                     >
                         <option value="">Select Exam</option>
                         @foreach($exams as $exam)
@@ -48,17 +42,35 @@
                 </div>
 
                 <div class="grid-cols-1">
-                    <h5 class="text-md text-start font-medium text-gray-900">Select Grade</h5>
-                    <select
-                        wire:model="form.grade_id"
+                    <h5 class="text-md text-start font-medium text-gray-900">Select Subject</h5>
+                    <livewire:subject.subject-autocomplete />
+                    @error('form.subject_id') <span class="error text-red-600">{{ $message }}</span> @enderror
+                </div>
+
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <h5 class="text-md text-start font-medium text-gray-900">Select Grade</h5>
+                        <select
+                            wire:model="form.grade_id"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                    >
-                        <option value="">Select Grade</option>
-                        @foreach($grades as $grade)
-                            <option value="{{ $grade->id }}">{{ $grade->grade_letter }}</option>
-                        @endforeach
-                    </select>
-                    @error('form.grade_id') <span class="error text-red-600">{{ $message }}</span> @enderror
+                        >
+                            <option value="">Select Grade</option>
+                            @foreach($grades as $grade)
+                                <option value="{{ $grade->id }}">{{ $grade->grade_letter }}</option>
+                            @endforeach
+                        </select>
+                        @error('form.grade_id') <span class="error text-red-600">{{ $message }}</span> @enderror
+                    </div>
+                    <div>
+                        <h5 class="text-md text-start font-medium text-gray-900">Credit Earned:</h5>
+                        <input
+                            wire:model="form.credit_earned"
+                            disabled
+                            readonly
+                            type="text"
+                            class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                        />
+                    </div>
                 </div>
             </div>
 

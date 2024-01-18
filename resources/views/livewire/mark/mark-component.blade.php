@@ -32,6 +32,10 @@
                                 'displayName' => 'Student Name'
                             ])
                             @include('livewire.includes.table-sortable-th',[
+                                'name' => 'semester_id',
+                                'displayName' => 'Semester Name'
+                            ])
+                            @include('livewire.includes.table-sortable-th',[
                                 'name' => 'exam_id',
                                 'displayName' => 'Exam Name'
                             ])
@@ -48,14 +52,6 @@
                                 'displayName' => 'Credit Earned'
                             ])
                             @include('livewire.includes.table-sortable-th',[
-                                'name' => 'gp_earned',
-                                'displayName' => 'GP Earned'
-                            ])
-                            @include('livewire.includes.table-sortable-th',[
-                                'name' => 'remarks',
-                                'displayName' => 'Remarks'
-                            ])
-                            @include('livewire.includes.table-sortable-th',[
                                'name' => 'created_by_user_id',
                                'displayName' => 'Created By'
                            ])
@@ -68,14 +64,12 @@
                         @foreach ($marks as $item)
                             <tr wire:key="{{ $item->id }}" class="border-b dark:border-gray-700">
                                 <td class="px-4 py-3">{{ $item->student->name }}</td>
+                                <td class="px-4 py-3">{{ $item->semester->name }}</td>
                                 <td class="px-4 py-3">{{ $item->exam->name }}</td>
                                 <td class="px-4 py-3">{{ $item->subject->name }}</td>
-                                <td class="px-4 py-3">{{ $item->grade }}</td>
+                                <td class="px-4 py-3">{{ $item->grade->grade_letter }}</td>
                                 <td class="px-4 py-3">{{ $item->credit_earned }}</td>
-                                <td class="px-4 py-3">{{ $item->gp_earned }}</td>
-                                <td class="px-4 py-3">{{ $item->remaks }}</td>
                                 <td class="px-4 py-3">{{ $item->created_by_user->name }}</td>
-                                <td class="px-4 py-3">{{ $item->created_at }}</td>
                                 <td class="px-4 py-3 flex items-start justify-center">
                                     <button
                                         type="submit"

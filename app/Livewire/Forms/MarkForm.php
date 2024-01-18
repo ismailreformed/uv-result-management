@@ -53,6 +53,7 @@ MarkForm extends Form
         $this->model = $model;
         $this->id = $model->id;
         $this->student_id = $model->student_id;
+        $this->semester_id = $model->semester_id;
         $this->exam_id = $model->exam_id;
         $this->subject_id = $model->subject_id;
         $this->number = $model->number;
@@ -69,13 +70,12 @@ MarkForm extends Form
 
         Mark::create([
             'student_id' => $this->student_id,
+            'semester_id' => $this->semester_id,
             'exam_id' => $this->exam_id,
             'subject_id' => $this->subject_id,
             'number' => $this->number,
             'grade_id' => $this->grade_id,
             'credit_earned' => $this->credit_earned,
-            'gp_earned' => $this->gp_earned,
-            'remarks' => $this->remarks,
             'created_by_user_id' => auth()->id()
         ]);
 
@@ -88,13 +88,12 @@ MarkForm extends Form
 
         $this->model->update([
             'student_id' => $this->student_id,
+            'semester_id' => $this->semester_id,
             'exam_id' => $this->exam_id,
             'subject_id' => $this->subject_id,
             'number' => $this->number,
             'grade_id' => $this->grade_id,
             'credit_earned' => $this->credit_earned,
-            'gp_earned' => $this->gp_earned,
-            'remarks' => $this->remarks,
             'updated_by_user_id' => auth()->id(),
         ]);
 
