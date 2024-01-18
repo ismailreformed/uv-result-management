@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $user = \App\Models\User::factory()->create([
-            'name' => 'Ismail Hossain',
-            'email' => 'ismailreformed@gmail.com',
+            'name' => 'Sharif Uddin Khan',
+            'email' => 'sharifuddin@cuet.ac.bd',
         ]);
     }
 }
