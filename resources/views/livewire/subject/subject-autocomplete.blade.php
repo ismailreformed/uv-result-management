@@ -10,11 +10,11 @@
     />
 
     @if($showList)
-        <div class="absolute bg-gray-50 border border-gray-300 w-full mt-1 rounded-sm z-30 max-h-32 overflow-y-scroll">
+        <div class="absolute bg-gray-100 shadow-2xl shadow-gray-400 w-full mt-1 rounded-sm z-30 max-h-32 overflow-y-scroll">
             @foreach($subjects as $subject)
              <div
                  wire:click="selectSubject({{ $subject->id }})"
-                 class="cursor-pointer p-2 hover:bg-blue-100"
+                 class="cursor-pointer p-2 hover:bg-blue-100 {{$query === sprintf('%s - %s', $subject->code, $subject->name) ? 'bg-blue-200' : ''}}"
              >
                  {{ $subject->code }} - {{ $subject->name }}
              </div>
