@@ -65,7 +65,6 @@ MarkForm extends Form
         $this->subject_id = $model->subject_id;
         $this->number = $model->number;
         $this->grade_id = $model->grade_id;
-        $this->credit_earned = $model->credit_earned;
         $this->gp_earned = $model->gp_earned;
         $this->remarks = $model->remarks;
         $this->editMode = true;
@@ -82,7 +81,6 @@ MarkForm extends Form
             'subject_id' => $this->subject_id,
             'number' => $this->number,
             'grade_id' => $this->grade_id,
-            'credit_earned' => $this->credit_earned,
             'created_by_user_id' => auth()->id()
         ]);
 
@@ -100,7 +98,6 @@ MarkForm extends Form
             'subject_id' => $this->subject_id,
             'number' => $this->number,
             'grade_id' => $this->grade_id,
-            'credit_earned' => $this->credit_earned,
             'updated_by_user_id' => auth()->id(),
         ]);
 

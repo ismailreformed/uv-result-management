@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('marks', function (Blueprint $table) {
+            $table->float('credit_earned', 3)->change();
             $table->unsignedBigInteger('semester_id')->after('student_id');
         });
     }

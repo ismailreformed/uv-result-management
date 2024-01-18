@@ -23,6 +23,14 @@ class Mark extends Model
         'updated_by_user_id',
     ];
 
+    public static function boot()
+    {
+        parent::boot();
+
+        self::saving(function ($model) {
+            $model->credit_earned = (float)$model->subject->credit_hours * (float) $model->grade->grade_point;
+        });
+    }
 
     public function student()
     {

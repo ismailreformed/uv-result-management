@@ -61,17 +61,17 @@
                         </select>
                         @error('form.grade_id') <span class="error text-red-600">{{ $message }}</span> @enderror
                     </div>
-                    <div>
-                        <h5 class="text-md text-start font-medium text-gray-900">Credit Earned:</h5>
-                        <input
-                            wire:model="form.credit_earned"
-                            disabled
-                            readonly
-                            placeholder="{{$form->credit_earned}}"
-                            type="text"
-                            class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                        />
-                    </div>
+{{--                    <div>--}}
+{{--                        <h5 class="text-md text-start font-medium text-gray-900">Credit Earned:</h5>--}}
+{{--                        <input--}}
+{{--                            wire:model="form.credit_earned"--}}
+{{--                            disabled--}}
+{{--                            readonly--}}
+{{--                            placeholder="{{$form->credit_earned}}"--}}
+{{--                            type="text"--}}
+{{--                            class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "--}}
+{{--                        />--}}
+{{--                    </div>--}}
                 </div>
             </div>
 
