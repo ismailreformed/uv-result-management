@@ -5,8 +5,7 @@ namespace App\Livewire\Mark;
 use App\Livewire\Forms\MarkForm;
 use App\Models\Exam;
 use App\Models\Grade;
-use App\Models\Student;
-use App\Models\Subject;
+use App\Models\Semester;
 use Livewire\Attributes\On;
 use LivewireUI\Modal\ModalComponent;
 
@@ -39,7 +38,8 @@ class CreateMark extends ModalComponent
     {
         $exams = Exam::all();
         $grades = Grade::all();
+        $semesters = Semester::all();
 
-        return view('livewire.mark.create-mark', compact( 'exams', 'grades'));
+        return view('livewire.mark.create-mark', compact( 'exams', 'grades', 'semesters'));
     }
 }

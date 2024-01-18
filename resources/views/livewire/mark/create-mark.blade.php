@@ -13,6 +13,20 @@
                 </div>
 
                 <div class="grid-cols-1">
+                    <h5 class="text-md text-start font-medium text-gray-900">Select Semester</h5>
+                    <select
+                        wire:model="form.semester_id"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                    >
+                        <option value="">Select Exam</option>
+                        @foreach($semesters as $semester)
+                            <option value="{{ $semester->id }}">{{ $semester->name }}</option>
+                        @endforeach
+                    </select>
+                    @error('form.semester_id') <span class="error text-red-600">{{ $message }}</span> @enderror
+                </div>
+
+                <div class="grid-cols-1">
                     <h5 class="text-md text-start font-medium text-gray-900">Select Subject</h5>
                     <livewire:subject.subject-autocomplete />
                     @error('form.subject_id') <span class="error text-red-600">{{ $message }}</span> @enderror

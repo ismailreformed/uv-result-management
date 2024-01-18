@@ -12,6 +12,7 @@ class Mark extends Model
     protected $fillable = [
         'created_by_user_id',
         'student_id',
+        'semester_id',
         'exam_id',
         'subject_id',
         'number',
@@ -26,6 +27,11 @@ class Mark extends Model
     public function student()
     {
         return $this->hasOne(Student::class, 'id', 'student_id');
+    }
+
+    public function semester()
+    {
+        return $this->hasOne(Semester::class, 'id', 'semester_id');
     }
 
     public function exam()

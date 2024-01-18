@@ -15,6 +15,8 @@ MarkForm extends Form
     #[Validate]
     public $student_id = '';
     #[Validate]
+    public $semester_id = '';
+    #[Validate]
     public $subject_id = '';
     #[Validate]
     public $exam_id = '';
@@ -35,8 +37,9 @@ MarkForm extends Form
     {
         return [
             'student_id' => 'required|exists:students,id',
+            'semester_id' => 'required_with:student_id|exists:semesters,id',
+            'subject_id' => 'required_with:semester_id|exists:subjects,id',
             'exam_id' => 'required|exists:exams,id',
-            'subject_id' => 'required|exists:subjects,id',
             'number' => 'nullable|numeric',
             'grade_id' => 'required|exists:grades,id',
             'credit_earned' => 'nullable|numeric',
