@@ -6,6 +6,7 @@ use App\Livewire\Forms\MarkForm;
 use App\Models\Exam;
 use App\Models\Grade;
 use App\Models\Mark;
+use App\Models\Semester;
 use App\Models\Student;
 use App\Models\Subject;
 use LivewireUI\Modal\ModalComponent;
@@ -30,11 +31,10 @@ class UpdateMark extends ModalComponent
 
     public function render()
     {
-        $students = Student::all();
-        $subjects = Subject::all();
         $exams = Exam::all();
         $grades = Grade::all();
+        $semesters = Semester::all();
 
-        return view('livewire.mark.create-mark', compact('students', 'subjects', 'exams', 'grades'));
+        return view('livewire.mark.create-mark', compact('semesters', 'exams', 'grades'));
     }
 }
