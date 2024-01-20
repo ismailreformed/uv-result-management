@@ -44,8 +44,8 @@
                                 'displayName' => 'Subject Name'
                             ])
                             @include('livewire.includes.table-sortable-th',[
-                                'name' => 'grade',
-                                'displayName' => 'grade'
+                                'name' => 'grade_id',
+                                'displayName' => 'Grade'
                             ])
                             @include('livewire.includes.table-sortable-th',[
                                 'name' => 'credit_earned',

@@ -68,7 +68,7 @@ Route::middleware([
         return view('mark');
     })->name('marks');
 
-    Route::get('/results', function () {
-        return view('result');
-    })->name('results');
+    Route::get('/result-generation', function () {
+        return view('result-generation');
+    })->name('result-generation');
 });

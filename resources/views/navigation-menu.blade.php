@@ -53,6 +53,9 @@
                     <x-nav-link href="{{ route('marks') }}" :active="request()->routeIs('marks')">
                         {{ __('Marks') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('result-generation') }}" :active="request()->routeIs('result-generation')">
+                        {{ __('Result Generation') }}
+                    </x-nav-link>
                 </div>
             </div>
 
