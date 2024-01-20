@@ -55,7 +55,7 @@ class CreateMark extends ModalComponent
     public function render()
     {
         $exams = Exam::all();
-        $grades = Grade::all();
+        $grades = Grade::all()->sortByDesc('id');
         $semesters = Semester::all();
 
         return view('livewire.mark.create-mark', compact( 'exams', 'grades', 'semesters'));
