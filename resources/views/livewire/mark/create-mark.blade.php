@@ -8,7 +8,7 @@
             <div class="grid grid-cols-1 gap-3 items-start justify-start">
                 <div class="grid-cols-1">
                     <h5 class="text-md text-start font-medium text-gray-900">Select Student</h5>
-                    <livewire:student.student-autocomplete />
+                    <livewire:student.student-autocomplete :selectedStudent="$selectedStudent ?? null" />
                     @error('form.student_id') <span class="error text-red-600">{{ $message }}</span> @enderror
                 </div>
 
@@ -43,7 +43,7 @@
 
                 <div class="grid-cols-1">
                     <h5 class="text-md text-start font-medium text-gray-900">Select Subject</h5>
-                    <livewire:subject.subject-autocomplete />
+                    <livewire:subject.subject-autocomplete :selectedSubject="$selectedSubject ?? null" />
                     @error('form.subject_id') <span class="error text-red-600">{{ $message }}</span> @enderror
                 </div>
 

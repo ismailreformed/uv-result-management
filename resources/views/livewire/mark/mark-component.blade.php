@@ -73,7 +73,7 @@
                                 <td class="px-4 py-3 flex items-start justify-center">
                                     <button
                                         type="submit"
-                                        wire:click="$dispatch('openModal', { component: 'mark.create-mark', arguments: { mark: {{ $item->id }} } })"
+                                        wire:click="$dispatch('openModal', { component: 'mark.update-mark', arguments: { mark: {{ $item->id }} } })"
                                     >
                                         <x-heroicons::mini.solid.pencil-square class="w-5 h-5 text-blue-600" />
                                     </button>

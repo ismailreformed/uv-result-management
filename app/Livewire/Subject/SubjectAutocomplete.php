@@ -14,7 +14,7 @@ class SubjectAutocomplete extends Component
 
 
     // This lifecycle hook is called when the component receives new parameters
-    public function mount($selectedSubject)
+    public function mount($selectedSubject = null)
     {
         if($selectedSubject instanceof Subject) {
             $this->subjects = [$selectedSubject];

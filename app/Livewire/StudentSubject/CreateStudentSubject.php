@@ -2,12 +2,8 @@
 
 namespace App\Livewire\StudentSubject;
 
-use App\Livewire\Forms\StudentForm;
 use App\Livewire\Forms\StudentSubjectForm;
-use App\Models\Department;
 use App\Models\Semester;
-use App\Models\Student;
-use App\Models\Subject;
 use Livewire\Attributes\On;
 use LivewireUI\Modal\ModalComponent;
 

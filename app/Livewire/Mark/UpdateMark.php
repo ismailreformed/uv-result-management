@@ -35,6 +35,9 @@ class UpdateMark extends ModalComponent
         $grades = Grade::all()->sortByDesc('id');
         $semesters = Semester::all();
 
-        return view('livewire.mark.create-mark', compact('semesters', 'exams', 'grades'));
+        $selectedStudent = Student::find($this->form->student_id);
+        $selectedSubject = Subject::find($this->form->subject_id);
+
+        return view('livewire.mark.create-mark', compact('selectedStudent', 'selectedSubject', 'semesters', 'exams', 'grades'));
     }
 }

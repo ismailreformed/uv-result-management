@@ -12,7 +12,7 @@ class StudentAutocomplete extends Component
     public $students = [];
 
     // This lifecycle hook is called when the component receives new parameters
-    public function mount($selectedStudent)
+    public function mount($selectedStudent = null)
     {
         if($selectedStudent instanceof Student) {
             $this->students = [$selectedStudent];
