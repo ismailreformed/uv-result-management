@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Subject;
 
+use App\Models\Student;
 use App\Models\Subject;
 use Livewire\Component;
 
@@ -10,6 +11,17 @@ class SubjectAutocomplete extends Component
     public $showList = false;
     public $query = '';
     public $subjects = [];
+
+
+    // This lifecycle hook is called when the component receives new parameters
+    public function mount($selectedSubject)
+    {
+        if($selectedSubject instanceof Subject) {
+            $this->subjects = [$selectedSubject];
+            $this->query = sprintf('%s - %s', $selectedSubject->code, $selectedSubject->name);
+            $this->dispatch('subject-selected', $selectedSubject);
+        }
+    }
 
     public function queryUpdated()
     {

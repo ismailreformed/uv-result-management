@@ -31,10 +31,10 @@ class UpdateStudentSubject extends ModalComponent
 
     public function render()
     {
-        $students = Student::all();
+        $selectedStudent = Student::find($this->form->student_id);
         $semesters = Semester::all();
-        $subjects = Subject::all();
+        $selectedSubject = Subject::find($this->form->subject_id);
 
-        return view('livewire.student-subject.create-student-subject', compact('students', 'subjects', 'semesters'));
+        return view('livewire.student-subject.create-student-subject', compact('selectedStudent', 'selectedSubject', 'semesters'));
     }
 }

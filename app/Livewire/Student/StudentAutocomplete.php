@@ -11,6 +11,16 @@ class StudentAutocomplete extends Component
     public $query = '';
     public $students = [];
 
+    // This lifecycle hook is called when the component receives new parameters
+    public function mount($selectedStudent)
+    {
+        if($selectedStudent instanceof Student) {
+            $this->students = [$selectedStudent];
+            $this->query = sprintf('%s - %s', $selectedStudent->roll, $selectedStudent->name);
+            $this->dispatch('student-selected', $selectedStudent);
+        }
+    }
+
     public function queryUpdated()
     {
         if(empty($this->query)) {
