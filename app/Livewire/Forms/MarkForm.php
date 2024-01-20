@@ -51,7 +51,8 @@ MarkForm extends Form
                     ->where('semester_id', $this->semester_id)
                     ->where('subject_id', $this->subject_id)
                     ->where('exam_id', $this->exam_id);
-            })]
+            })->ignore($this->id),
+            ]
         ];
     }
 
