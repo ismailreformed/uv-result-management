@@ -1,6 +1,6 @@
 <div>
-    <section class="mt-10">
-        <div class="mx-auto max-w-screen-xl px-6 lg:px-12">
+    <section >
+        <div class="max-w-screen-xl">
             <!-- Start coding here -->
             <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
                 <div class="grid grid-cols-4 gap-4 p-4 justify-end items-end">

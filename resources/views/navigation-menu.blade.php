@@ -1,62 +1,71 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 fixed left-0 right-0 z-40  w-full hidden-print-item">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
+    <div class="px-4">
+        <div class="flex justify-between h-20">
             <div class="flex items-center">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-mark class="block h-9 w-auto" />
-                    </a>
+{{--                    <a href="{{ route('dashboard') }}">--}}
+{{--                        <x-application-mark class="block h-9 w-auto" />--}}
+{{--                    </a>--}}
+                    <button
+                        class="border-2 rounded-full p-1 mr-4 flex duration-500 transition-transform"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            class="w-6 h-6"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d= "M9 5l7 7-7 7"
+{{--                                d= "M9 5l7 7-7 7" : "M15 19l-7-7 7-7"--}}
+                            />
+                        </svg>
+                    </button>
+                </div>
+
+                <div>
+                    <h1 class="font-bold text-2xl">CUET Result Management System</h1>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-6 sm:-my-px sm:ms-10 sm:flex">
+{{--                <div class="hidden space-x-6 sm:-my-px sm:ms-10 sm:flex">--}}
 
-                    <x-dropdown align="left" width="60">
-                        <x-slot name="trigger">
-                            <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
-                                {{ __('Settings') }}
-                                <x-heroicons::mini.solid.chevron-down class="ms-2 -me-0.5 w-5 h-5" />
-                            </button>
-                        </x-slot>
+{{--                    <x-dropdown align="left" width="60">--}}
+{{--                        <x-slot name="trigger">--}}
+{{--                            <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">--}}
+{{--                                {{ __('Settings') }}--}}
+{{--                                <x-heroicons::mini.solid.chevron-down class="ms-2 -me-0.5 w-5 h-5" />--}}
+{{--                            </button>--}}
+{{--                        </x-slot>--}}
 
-                        <x-slot name="content">
-                            <!-- Include the First Six Menu Items as Dropdown Items -->
-                            <x-dropdown-link class="px-4 py-2" href="{{ route('faculties') }}" :active="request()->routeIs('faculties')">
-                                {{ __('Faculties') }}
-                            </x-dropdown-link>
-                            <x-dropdown-link class="px-4 py-2" href="{{ route('departments') }}" :active="request()->routeIs('departments')">
-                                {{ __('Departments') }}
-                            </x-dropdown-link>
-                            <x-dropdown-link class="px-4 py-2" href="{{ route('semesters') }}" :active="request()->routeIs('semesters')">
-                                {{ __('Semesters') }}
-                            </x-dropdown-link>
-                            <x-dropdown-link class="px-4 py-2" href="{{ route('exams') }}" :active="request()->routeIs('exams')">
-                                {{ __('Exams') }}
-                            </x-dropdown-link>
-                            <x-dropdown-link class="px-4 py-2" href="{{ route('grades') }}" :active="request()->routeIs('grades')">
-                                {{ __('Grades') }}
-                            </x-dropdown-link>
-                        </x-slot>
-                    </x-dropdown>
+{{--                        <x-slot name="content">--}}
+{{--                            <!-- Include the First Six Menu Items as Dropdown Items -->--}}
+{{--                            <x-dropdown-link class="px-4 py-2" href="{{ route('faculties') }}" :active="request()->routeIs('faculties')">--}}
+{{--                                {{ __('Faculties') }}--}}
+{{--                            </x-dropdown-link>--}}
+{{--                            <x-dropdown-link class="px-4 py-2" href="{{ route('departments') }}" :active="request()->routeIs('departments')">--}}
+{{--                                {{ __('Departments') }}--}}
+{{--                            </x-dropdown-link>--}}
+{{--                            <x-dropdown-link class="px-4 py-2" href="{{ route('semesters') }}" :active="request()->routeIs('semesters')">--}}
+{{--                                {{ __('Semesters') }}--}}
+{{--                            </x-dropdown-link>--}}
+{{--                            <x-dropdown-link class="px-4 py-2" href="{{ route('exams') }}" :active="request()->routeIs('exams')">--}}
+{{--                                {{ __('Exams') }}--}}
+{{--                            </x-dropdown-link>--}}
+{{--                            <x-dropdown-link class="px-4 py-2" href="{{ route('grades') }}" :active="request()->routeIs('grades')">--}}
+{{--                                {{ __('Grades') }}--}}
+{{--                            </x-dropdown-link>--}}
+{{--                        </x-slot>--}}
+{{--                    </x-dropdown>--}}
 
-                    <x-nav-link href="{{ route('subjects') }}" :active="request()->routeIs('subjects')">
-                        {{ __('Subjects') }}
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('students') }}" :active="request()->routeIs('students')">
-                        {{ __('Students') }}
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('student-subjects') }}" :active="request()->routeIs('student-subjects')">
-                        {{ __('Student Subjects') }}
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('marks') }}" :active="request()->routeIs('marks')">
-                        {{ __('Marks') }}
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('result-generation') }}" :active="request()->routeIs('result-generation')">
-                        {{ __('Result Generation') }}
-                    </x-nav-link>
-                </div>
+
+{{--                </div>--}}
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ms-6">
