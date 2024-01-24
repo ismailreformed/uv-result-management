@@ -1,5 +1,5 @@
 <aside x-data="{ openMenu: false }" class="flex-shrink-0 w-[16%] flex-col border-r transition-all duration-300 hidden lg:block">
-    <div class="w-[40%] lg:w-[16%] bg-normal px-2 h-screen fixed left-0 lg:top-20">
+    <div class="w-[40%] lg:w-[16%] bg-normal px-2 h-screen fixed left-0 lg:top-20 overflow-y-scroll">
         <ul class="mb-24 w-full">
             <li class="py-1 cursor-pointer capitalize hover:text-brand">
                 <p  class="cursor-pointer capitalize p-3 flex justify-between text-brand font-bold" aria-expanded="false">
