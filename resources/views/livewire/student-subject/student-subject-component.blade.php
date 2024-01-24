@@ -2,7 +2,7 @@
     <section >
         <div class="max-w-screen-xl">
             <!-- Start coding here -->
-            <div class="bg-white dark:bg-gray-800">
+            <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
                 <div class="grid grid-cols-4 gap-4 p-4 justify-end items-end">
                     <div class="grid-cols-2">
                         <label class="text-md font-medium text-gray-900">Search</label>
