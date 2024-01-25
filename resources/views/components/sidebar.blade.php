@@ -47,7 +47,7 @@
                     <span class="flex ml-2 mr-3">
                         Settings
                     </span>
-                    <svg :class="{ 'transform rotate-180': openMenu }" xmlns="http://www.w3.org/2000/svg" class="inline-block w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <svg :class="{ 'transform rotate-180': openMenu } justify-end" xmlns="http://www.w3.org/2000/svg" class="inline-block w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </p>
                 <ul x-show="openMenu" class="px-3 py-3 bg-gray-200 rounded submenu_animate box-shadow">
                     <li class="py-1 cursor-pointer capitalize hover:text-brand">
