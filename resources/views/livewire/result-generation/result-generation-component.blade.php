@@ -68,7 +68,7 @@
                             </div>
                         </div>
 
-                        <div class="mx-auto my-2 ">
+                        <div class="mx-auto my-2" id="printIndividualResult">
                             <div class="flex flex-nowrap justify-center mt-2">
                                 <div class="grid grid-rows-auto gap-0">
                                     <!-- School Header Starts-->
@@ -183,8 +183,8 @@
                                             <p class="">Compared by:</p>
                                         </div>
 
-                                        <div class="flex justify-between">
-                                            <h2 class="mb-10 font-semibold">Date:</h2>
+                                        <div class="flex justify-between mb-10">
+                                            <h2 class="font-semibold">Date:</h2>
                                             <h2 class="font-semibold uppercase">Controller of the Examinations</h2>
                                         </div>
                                     </div>
