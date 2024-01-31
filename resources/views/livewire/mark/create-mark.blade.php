@@ -9,7 +9,7 @@
                 <div class="grid-cols-1">
                     <h5 class="text-md text-start font-medium text-gray-900">Select Student</h5>
                     <livewire:student.student-autocomplete :selectedStudent="$selectedStudent ?? null" />
-                    @error('form.student_id') <span class="error text-red-600">{{ $message }}</span> @enderror
+{{--                    @error('form.student_id') <span class="error text-red-600">{{ $message }}</span> @enderror--}}
                 </div>
 
                 <div class="grid-cols-1">
@@ -23,7 +23,7 @@
                             <option value="{{ $semester->id }}">{{ $semester->name }}</option>
                         @endforeach
                     </select>
-                    @error('form.semester_id') <span class="error text-red-600">{{ $message }}</span> @enderror
+{{--                    @error('form.semester_id') <span class="error text-red-600">{{ $message }}</span> @enderror--}}
                 </div>
 
                 <div class="grid-cols-1">
@@ -37,7 +37,7 @@
                             <option value="{{ $exam->id }}">{{ $exam->name }}</option>
                         @endforeach
                     </select>
-                    @error('form.exam_id') <span class="error text-red-600">{{ $message }}</span> @enderror
+{{--                    @error('form.exam_id') <span class="error text-red-600">{{ $message }}</span> @enderror--}}
 
                 </div>
 

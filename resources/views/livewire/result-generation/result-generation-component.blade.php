@@ -3,7 +3,7 @@
         <div class="max-w-screen-xl">
             <!-- Start coding here -->
             <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
-                <div class="px-24 text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+                <div class="px-2 text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
                     <ul class="flex flex-wrap -mb-px">
                         @foreach($tabs as $tab)
                             <li
@@ -18,6 +18,54 @@
                             </li>
                         @endforeach
                     </ul>
+                </div>
+
+                <div class="max-w-screen-xl">
+                    <!-- Start coding here -->
+                    <div class="border-b border-gray-100">
+                        <div class="grid grid-cols-4 gap-4 px-6 py-4 justify-end items-end">
+                            <div class="grid-cols-2">
+                                <h5 class="text-md text-start font-medium text-gray-900">Select Student</h5>
+                                <livewire:student.student-autocomplete :selectedStudent="$selectedStudent ?? null" />
+                                @error('student_id') <span class="error text-red-600">{{ $message }}</span> @enderror
+                            </div>
+                            <div class="grid-cols-2">
+                                <h5 class="text-md text-start font-medium text-gray-900">Select Semester</h5>
+                                <select
+                                    wire:model="semester_id"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                                >
+                                    <option value="">Select Exam</option>
+                                    @foreach($semesters as $semester)
+                                        <option value="{{ $semester->id }}">{{ $semester->name }}</option>
+                                    @endforeach
+                                </select>
+                                @error('semester_id') <span class="error text-red-600">{{ $message }}</span> @enderror
+                            </div>
+                            <div class="grid-cols-2">
+                                <h5 class="text-md text-start font-medium text-gray-900">Select Exam</h5>
+                                <select
+                                    wire:model="exam_id"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                                >
+                                    <option value="">Select Exam</option>
+                                    @foreach($exams as $exam)
+                                        <option value="{{ $exam->id }}">{{ $exam->name }}</option>
+                                    @endforeach
+                                </select>
+                                @error('exam_id') <span class="error text-red-600">{{ $message }}</span> @enderror
+                            </div>
+
+                            <div class="grid-cols-2">
+                                <button
+                                    type="submit"
+                                    class="px-4 py-2 bg-blue-500 text-white rounded-lg justify-center items-end"
+                                >
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 @if($activeTab === 'Individual Result')
