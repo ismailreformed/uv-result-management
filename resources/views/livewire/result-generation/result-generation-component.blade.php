@@ -177,7 +177,7 @@
                                     <!-- Non-Academic Record Ends-->
 
                                     <!-- Remarks Starts -->
-                                    <div id="remarks">
+                                    <div id="remarks" class="px-4">
                                         <div class="my-10">
                                             <p class="mb-10">Prepared by:</p>
                                             <p class="">Compared by:</p>
