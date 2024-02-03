@@ -90,9 +90,7 @@
                                                 </select>
                                             </div>
                                             <span class="text-lg">
-                                                @if($department_name)
-                                                    Dept. of {{ $department_name }} <br>
-                                                @endif
+                                                Dept. of {{ $department_name }} <br>
                                             </span>
                                             <span class="text-xl font-semibold uppercase">Grade Sheet</span>
                                         </div>
@@ -100,10 +98,10 @@
                                     <!-- School Header Ends-->
 
                                     <!-- Student Profile Starts-->
-                                    <div id="studentProfile" class="flex justify-between items-center prose-table:my-0 p-3 gap-4">
+                                    <div id="studentProfile" class="flex justify-start items-center p-3 gap-4">
                                         <div class="grid grid-cols-2 gap-4">
                                             <!-- Left column (keys) -->
-                                            <div class="text-gray-600">
+                                            <div class="text-gray-600 w-28">
                                                 <span class="font-semibold text-lg">
                                                     Name <br>
                                                 </span>
@@ -120,7 +118,7 @@
                                             </div>
 
                                             <!-- Right column (values) -->
-                                            <div>
+                                            <div class="">
                                                 <span class="text-lg">
                                                     : {{ $student ? $student['name'] : '' }} <br>
                                                 </span>
@@ -151,12 +149,14 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <td class="border border-slate-400 text-sm text-left px-2"><span>1</span></td>
-                                                <td class="border border-slate-400 text-sm"><span>ENGLISH</span></td>
-                                                <td class="border border-slate-400 text-sm"><span>10</span></td>
-                                                <td class="border border-slate-400 text-sm"><span>10</span></td>
-                                            </tr>
+                                                @foreach($results as $result)
+                                                    <tr>
+                                                        <td class="border border-slate-400 text-sm text-left px-2"><span>{{ $result['subject_name'] }}</span></td>
+                                                        <td class="border border-slate-400 text-sm"><span>{{ $result['subject_code'] }}</span></td>
+                                                        <td class="border border-slate-400 text-sm"><span>{{ $result['credit_hours'] }}</span></td>
+                                                        <td class="border border-slate-400 text-sm"><span>{{ $result['credit_earned'] }}</span></td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                         <!-- Subject Scores Starts -->

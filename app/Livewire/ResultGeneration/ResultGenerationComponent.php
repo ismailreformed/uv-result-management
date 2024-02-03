@@ -5,6 +5,7 @@ namespace App\Livewire\ResultGeneration;
 use App\Models\Department;
 use App\Models\Exam;
 use App\Models\Grade;
+use App\Models\Mark;
 use App\Models\Semester;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Validate;
@@ -25,6 +26,7 @@ class ResultGenerationComponent extends Component
 
     public $student = '';
     public $semester = '';
+    public array $results = [];
 
     public $tabs = ['Individual Result', 'Combined Result'];
     public $activeTab = 'Individual Result';
@@ -64,6 +66,21 @@ class ResultGenerationComponent extends Component
     public function searchResult()
     {
         $this->validate();
+
+        $marks = Mark::query()
+            ->where('student_id', $this->student_id)
+            ->where('semester_id', $this->semester_id)
+            ->where('exam_id', $this->exam_id)
+            ->get();
+
+        $this->results = $marks->map(function ($result) {
+            return [
+              'subject_name' => $result->subject->name,
+              'subject_code' => $result->subject->code,
+              'credit_hours' => $result->subject->code,
+              'credit_earned' => $result->credit_earned,
+            ];
+        })->toArray();
     }
 
     public function render()
