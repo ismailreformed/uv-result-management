@@ -13,7 +13,10 @@
     class="print:text-black relative"
 >
     <div class="print:hidden absolute top-3 right-4">
-        <button type="button" x-on:click="printDiv()">Print</button>
+        <button
+            type="button"
+            class="px-4 py-2 bg-blue-900 text-white rounded-lg justify-center items-end"
+            x-on:click="printDiv()">Print</button>
     </div>
 
     {{ $slot }}

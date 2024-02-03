@@ -26,6 +26,7 @@ class ResultGenerationComponent extends Component
 
     public $student = '';
     public $semester = '';
+    public $exam = '';
     public $gpa = '';
     public array $results = [];
 
@@ -52,6 +53,11 @@ class ResultGenerationComponent extends Component
     public function updatedSemesterId($value)
     {
         $this->semester = Semester::find($value);
+    }
+
+    public function updatedExamId($value)
+    {
+        $this->exam = Exam::find($value);
     }
 
 
