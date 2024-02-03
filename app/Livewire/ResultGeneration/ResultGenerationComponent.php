@@ -4,11 +4,8 @@ namespace App\Livewire\ResultGeneration;
 
 use App\Models\Exam;
 use App\Models\Grade;
-use App\Models\Mark;
 use App\Models\Semester;
-use Illuminate\Validation\Rule;
 use Livewire\Attributes\On;
-use Livewire\Attributes\Url;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -24,6 +21,8 @@ class ResultGenerationComponent extends Component
     #[Validate]
     public $exam_id = '';
 
+    public $student = null;
+
     public $tabs = ['Individual Result', 'Combined Result'];
     public $activeTab = 'Individual Result';
 
@@ -35,6 +34,7 @@ class ResultGenerationComponent extends Component
     #[On('student-selected')]
     public function updateStudentId($student)
     {
+        $this->student = $student;
         $this->student_id = $student['id'];
     }
 
@@ -51,7 +51,6 @@ class ResultGenerationComponent extends Component
     public function searchResult()
     {
         $this->validate();
-
     }
 
     public function render()
