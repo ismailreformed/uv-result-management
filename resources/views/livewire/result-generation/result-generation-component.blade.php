@@ -36,6 +36,7 @@
                                         wire:model.live.debounce.50ms="semester_id"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                                     >
+                                        <option value="" disabled>Select Semester</option>
                                         @foreach($semesters as $item)
                                             <option
                                                 value="{{ $item->id }}"
@@ -50,6 +51,7 @@
                                         wire:model="exam_id"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                                     >
+                                        <option value="" disabled>Select Exam</option>
                                         @foreach($exams as $exam)
                                             <option value="{{ $exam->id }}">{{ $exam->name }}</option>
                                         @endforeach
@@ -166,22 +168,22 @@
                                     <!-- Academic Record Ends-->
 
                                     <!-- Non-Academic Record Starts-->
-                                    <div class="grid grid-cols-3 p-3 gap-1">
+                                    <div class="grid grid-cols-3 p-3 gap-1 justify-end">
                                         <!-- Score Guide Starts -->
                                         <table class="table-auto">
                                             <thead class="text-center">
                                                 <tr>
-                                                    <th class="border p-1  text-sm">Marks</th>
-                                                    <th class="border p-1 text-sm">Letter Grade</th>
-                                                    <th class="border p-1 text-sm">Grade Point</th>
+                                                    <th class="border px-1.5 text-xs text-left">Marks</th>
+                                                    <th class="border p-1 text-xs">Letter Grade</th>
+                                                    <th class="border p-1 text-xs">Grade Point</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                             @foreach($grades as $grade)
                                                 <tr>
-                                                    <td class="border px-1.5 text-sm"><span>{{$grade->title}}</span></td>
-                                                    <td class="border p-0 text-sm text-center"><span>{{$grade->grade_letter}}</span></td>
-                                                    <td class="border p-0 text-sm text-center"><span>{{$grade->grade_point}}</span></td>
+                                                    <td class="border px-1.5 text-xs"><span>{{$grade->title}}</span></td>
+                                                    <td class="border p-0 text-xs pl-7 text-left"><span>{{$grade->grade_letter}}</span></td>
+                                                    <td class="border p-0 text-xs pl-6 text-left"><span>{{$grade->grade_point}}</span></td>
                                                 </tr>
                                             @endforeach
                                             </tbody>
