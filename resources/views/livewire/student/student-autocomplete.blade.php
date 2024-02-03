@@ -14,7 +14,7 @@
             @foreach($students as $student)
              <div
                  wire:click="selectStudent({{ $student->id }})"
-                 class="cursor-pointer p-2 hover:bg-blue-100 {{$query === sprintf('%s - %s', $student->roll, $student->name) ? 'bg-blue-200' : ''}}"
+                 class="text-xs cursor-pointer p-2 hover:bg-blue-100 {{$query === sprintf('%s - %s', $student->roll, $student->name) ? 'bg-blue-200' : ''}}"
              >
                  {{ $student->roll }} - {{ $student->name }}
              </div>

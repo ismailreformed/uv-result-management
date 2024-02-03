@@ -24,8 +24,20 @@
                 @if($activeTab === 'Individual Result')
                     <div class="overflow-x-auto">
                         <div class="border-b border-gray-200">
-                            <div class="grid grid-cols-4 gap-4 px-6 py-4 justify-center items-end">
+                            <div class="grid grid-cols-5 gap-4 px-6 py-4 justify-center items-end">
                                 <div class="grid-cols-2">
+                                    <h5 class="text-md text-start font-medium text-gray-900">Select Department</h5>
+                                    <select
+                                        wire:model.live.debounce.50ms="department_name"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                                    >
+                                        <option value="" disabled>Select Department</option>
+                                        @foreach($departments as $department)
+                                            <option value="{{ $department->name }}">{{ $department->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="grid-cols-3">
                                     <h5 class="text-md text-start font-medium text-gray-900">Select Student</h5>
                                     <livewire:student.student-autocomplete :selectedStudent="$selectedStudent ?? null" />
                                     @error('student_id') <span class="error text-red-600">{{ $message }}</span> @enderror
@@ -59,7 +71,7 @@
                                     @error('exam_id') <span class="error text-red-600">{{ $message }}</span> @enderror
                                 </div>
 
-                                <div class="grid-cols-2">
+                                <div class="grid-cols-1">
                                     <button
                                         type="submit"
                                         class="px-4 py-2 bg-blue-500 text-white rounded-lg justify-center items-end"
@@ -82,17 +94,6 @@
                                                 <span class="text-xl font-semibold uppercase">
                                                     CHITTAGONG UNIVERSITY OF ENGINEERING & TECHNOLOGY
                                                 </span>
-                                                <div class="">
-                                                    <select
-                                                        wire:model.live.debounce.50ms="department_name"
-                                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                                                    >
-                                                        <option value="" disabled readonly>Select Department</option>
-                                                        @foreach($departments as $department)
-                                                            <option value="{{ $department->name }}">{{ $department->name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
                                                 <span class="text-lg">
                                                     Dept. of {{ $department_name }} <br>
                                                 </span>
