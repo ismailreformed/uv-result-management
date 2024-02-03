@@ -141,9 +141,9 @@
                                     <!-- Academic Record Starts-->
                                     <div id="academicRecord" class="grid grid-rows-auto  prose-table:my-0 p-3 gap-1">
                                         <!-- Subject Scores Starts -->
-                                        <table class="table-fixed border-collapse border border-slate-400 text-center  font-semibold">
+                                        <table class="table-fixed border-collapse border border-slate-400 text-center">
                                             <thead>
-                                                <tr>
+                                                <tr class="font-semibold">
                                                     <th class="p-2 border border-slate-400 text-sm text-left uppercase">Descriptive tile of the Courses</th>
                                                     <th class="border border-slate-400 text-sm">Course Number</th>
                                                     <th class="border border-slate-400 text-sm">Credit Hours</th>
@@ -154,9 +154,9 @@
                                                 @foreach($results as $result)
                                                     <tr>
                                                         <td class="border border-slate-400 text-sm text-left px-2"><span>{{ $result['subject_name'] }}</span></td>
-                                                        <td class="border border-slate-400 text-sm"><span>{{ $result['subject_code'] }}</span></td>
-                                                        <td class="border border-slate-400 text-sm"><span>{{ $result['credit_hours'] }}</span></td>
-                                                        <td class="border border-slate-400 text-sm"><span>{{ $result['credit_earned'] }}</span></td>
+                                                        <td class="border border-slate-400 text-sm text-left pl-10"><span>{{ $result['subject_code'] }}</span></td>
+                                                        <td class="border border-slate-400 text-sm text-left pl-10"><span>{{ $result['credit_hours'] }}</span></td>
+                                                        <td class="border border-slate-400 text-sm text-left pl-10"><span>{{ $result['credit_earned'] }}</span></td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
