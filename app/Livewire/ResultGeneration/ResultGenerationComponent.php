@@ -2,6 +2,7 @@
 
 namespace App\Livewire\ResultGeneration;
 
+use App\Models\Department;
 use App\Models\Exam;
 use App\Models\Grade;
 use App\Models\Semester;
@@ -20,8 +21,10 @@ class ResultGenerationComponent extends Component
     public $semester_id = '';
     #[Validate]
     public $exam_id = '';
+    public $department_name = '';
 
-    public $student = null;
+    public $student = '';
+    public $semester = '';
 
     public $tabs = ['Individual Result', 'Combined Result'];
     public $activeTab = 'Individual Result';
@@ -36,6 +39,16 @@ class ResultGenerationComponent extends Component
     {
         $this->student = $student;
         $this->student_id = $student['id'];
+    }
+
+    public function mount()
+    {
+        $this->department_name = '';
+    }
+
+    public function updatedSemesterId($value)
+    {
+        $this->semester = Semester::find($value);
     }
 
 
@@ -58,7 +71,8 @@ class ResultGenerationComponent extends Component
         $exams = Exam::all();
         $grades = Grade::all()->sortByDesc('id');
         $semesters = Semester::all();
+        $departments = Department::all();
 
-        return view('livewire.result-generation.result-generation-component', compact( 'exams', 'grades', 'semesters'));
+        return view('livewire.result-generation.result-generation-component', compact(  'departments','exams', 'grades', 'semesters'));
     }
 }

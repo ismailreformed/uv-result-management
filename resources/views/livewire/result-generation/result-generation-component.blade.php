@@ -33,12 +33,13 @@
                                 <div class="grid-cols-2">
                                     <h5 class="text-md text-start font-medium text-gray-900">Select Semester</h5>
                                     <select
-                                        wire:model="semester_id"
+                                        wire:model.live.debounce.50ms="semester_id"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                                     >
-                                        <option value="">Select Semester</option>
-                                        @foreach($semesters as $semester)
-                                            <option value="{{ $semester->id }}">{{ $semester->name }}</option>
+                                        @foreach($semesters as $item)
+                                            <option
+                                                value="{{ $item->id }}"
+                                            >{{ $item->name }}</option>
                                         @endforeach
                                     </select>
                                     @error('semester_id') <span class="error text-red-600">{{ $message }}</span> @enderror
@@ -49,7 +50,6 @@
                                         wire:model="exam_id"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                                     >
-                                        <option value="">Select Exam</option>
                                         @foreach($exams as $exam)
                                             <option value="{{ $exam->id }}">{{ $exam->name }}</option>
                                         @endforeach
@@ -78,8 +78,21 @@
                                             <span class="text-2xl font-semibold uppercase">
                                                 CHITTAGONG UNIVERSITY OF ENGINEERING & TECHNOLOGY
                                             </span>
+                                            <div class="">
+                                                <select
+                                                    wire:model.live.debounce.50ms="department_name"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                                                >
+                                                    <option value="">Select Department</option>
+                                                    @foreach($departments as $department)
+                                                        <option value="{{ $department->name }}">{{ $department->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                             <span class="text-lg">
-                                                Dept. of Computer Science & Engineering <br>
+                                                @if($department_name)
+                                                    Dept. of {{ $department_name }} <br>
+                                                @endif
                                             </span>
                                             <span class="text-xl font-semibold uppercase">Grade Sheet</span>
                                         </div>
@@ -100,26 +113,26 @@
                                                 <span class="font-semibold text-lg">
                                                     Semester <br>
                                                 </span>
-                                                <span class="font-semibold text-lg">
-                                                    Date of Enrollment <br>
-                                                </span>
+{{--                                                <span class="font-semibold text-lg">--}}
+{{--                                                    Date of Enrollment <br>--}}
+{{--                                                </span>--}}
                                                 <!-- Add more keys as needed -->
                                             </div>
 
                                             <!-- Right column (values) -->
                                             <div>
                                                 <span class="text-lg">
-                                                    : Name <br>
+                                                    : {{ $student ? $student['name'] : '' }} <br>
                                                 </span>
                                                 <span class="text-lg">
-                                                    : Student Id <br>
+                                                    : {{ $student ? $student['roll'] : '' }}<br>
                                                 </span>
                                                 <span class="text-lg">
-                                                    : Semester <br>
+                                                    : {{ $semester ? $semester['name'] : '' }} <br>
                                                 </span>
-                                                <span class="text-lg">
-                                                    : Date of Enrollment <br>
-                                                </span>
+{{--                                                <span class="text-lg">--}}
+{{--                                                    : Date of Enrollment <br>--}}
+{{--                                                </span>--}}
                                             </div>
                                         </div>
                                     </div>
