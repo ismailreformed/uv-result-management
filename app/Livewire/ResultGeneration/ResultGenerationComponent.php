@@ -26,6 +26,7 @@ class ResultGenerationComponent extends Component
 
     public $student = '';
     public $semester = '';
+    public $gpa = '';
     public array $results = [];
 
     public $tabs = ['Individual Result', 'Combined Result'];
@@ -77,10 +78,17 @@ class ResultGenerationComponent extends Component
             return [
               'subject_name' => $result->subject->name,
               'subject_code' => $result->subject->code,
-              'credit_hours' => $result->subject->code,
+              'credit_hours' => $result->subject->credit_hours,
               'credit_earned' => $result->credit_earned,
+              'grade_letter' => $result->grade->grade_letter,
             ];
         })->toArray();
+
+        $this->gpa = round($marks->sum(function ($result) {
+            return $result->credit_earned;
+        }) / $marks->sum(function ($result) {
+                return $result->subject->credit_hours;
+            }), 3);
     }
 
     public function render()
