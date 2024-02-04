@@ -85,7 +85,7 @@
                         </div>
 
                         <x-html-print>
-                            <div id="printIndividualResult" style=" min-height: 100vh; display: flex; flex-direction: column;">
+                            <div class="m-7" id="printIndividualResult" style=" min-height: 100vh; display: flex; flex-direction: column;">
                                 <div class="flex justify-center">
                                     <div class="grid grid-cols-1 gap-0 ">
                                         <!-- School Header Starts-->

@@ -1,7 +1,7 @@
 <div
     x-data="{
 		printDiv() {
-			var printContents = this.$refs.container.innerHTML;
+			var printContents = this.$refs.container.innerHTML.trim();
 			var originalContents = document.body.innerHTML;
 			document.body.innerHTML = printContents;
 			window.print();
@@ -20,4 +20,15 @@
     </div>
 
     {{ $slot }}
+
+    <style>
+        /* CSS for printing */
+        @media print {
+            /* Hide page header and footer */
+            @page {
+                size: auto; /* auto is the default value */
+                margin: 0; /* zero out the page margins */
+            }
+        }
+    </style>
 </div>
