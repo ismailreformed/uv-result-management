@@ -28,7 +28,10 @@
                 }
 
                 body {
-                    margin: 30px; /* zero out the body margins */
+                    margin-top: 20px;
+                    margin-left: 30px;
+                    margin-right: 30px;
+                    margin-bottom: 0px;
                 }
             }
         </style>

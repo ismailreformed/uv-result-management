@@ -23,7 +23,7 @@
 
                 @if($activeTab === 'Individual Result')
                     <div class="overflow-x-auto">
-                        <div class="border-b border-gray-200">
+                        <div class="border-b border-gray-200 mb-4">
                             <div class="grid grid-cols-5 gap-4 px-6 py-4 justify-center items-end">
                                 <div class="grid-cols-2">
                                     <h5 class="text-md text-start font-medium text-gray-900">Select Department</h5>
@@ -85,9 +85,9 @@
                         </div>
 
                         <x-html-print>
-                            <div class="my-2" id="printIndividualResult">
-                                <div class="flex justify-center mt-2">
-                                    <div class="grid grid-cols-1 gap-0">
+                            <div id="printIndividualResult" style=" min-height: 100vh; display: flex; flex-direction: column;">
+                                <div class="flex justify-center">
+                                    <div class="grid grid-cols-1 gap-0 ">
                                         <!-- School Header Starts-->
                                         <div id="schoolHeader" class="flex justify-around items-center px-3 gap-4">
                                             <div class="grid grid-rows-auto gap-1 py-2 text-center rounded ">
@@ -178,47 +178,49 @@
                                         </div>
                                         <!-- Academic Record Ends-->
 
-                                        <!-- Non-Academic Record Starts-->
-                                        <div class="grid grid-cols-3 px-3 py-0 gap-1 justify-start">
-                                            <!-- Score Guide Starts -->
-                                            <table class="table-fixed">
-                                                <thead class="text-center">
+                                        <div id="footerItem" style="margin-top: auto;">
+                                            <!-- Non-Academic Record Starts-->
+                                            <div class="grid grid-cols-3 px-3 py-0 gap-1 justify-start">
+                                                <!-- Score Guide Starts -->
+                                                <table class="table-fixed">
+                                                    <thead class="text-center">
                                                     <tr>
                                                         <th class="border px-1.5 text-left" style="font-size: 10px;">Marks</th>
                                                         <th class="border" style="font-size: 10px;">Letter Grade</th>
                                                         <th class="border" style="font-size: 10px;">Grade Point</th>
                                                     </tr>
-                                                </thead>
-                                                <tbody>
-                                                @foreach($grades as $grade)
-                                                    <tr>
-                                                        <td class="border px-1.5" style="font-size: 10px;"><span>{{$grade->title}}</span></td>
-                                                        <td class="border p-0 pl-8 text-left" style="font-size: 10px;"><span>{{$grade->grade_letter}}</span></td>
-                                                        <td class="border p-0 pl-6 text-left" style="font-size: 10px;"><span>{{$grade->grade_point}}</span></td>
-                                                    </tr>
-                                                @endforeach
-                                                </tbody>
-                                            </table>
-                                            <!-- Score Guide Ends -->
-                                        </div>
-                                        <!-- Non-Academic Record Ends-->
-
-                                        <!-- Remarks Starts -->
-                                        <div id="remarks" class="px-3 justify-end items-end">
-                                            <div class="my-6">
-                                                <p class="mb-6">Prepared by:</p>
-                                                <p class="">Compared by:</p>
+                                                    </thead>
+                                                    <tbody>
+                                                    @foreach($grades as $grade)
+                                                        <tr>
+                                                            <td class="border px-1.5" style="font-size: 10px;"><span>{{$grade->title}}</span></td>
+                                                            <td class="border p-0 pl-8 text-left" style="font-size: 10px;"><span>{{$grade->grade_letter}}</span></td>
+                                                            <td class="border p-0 pl-6 text-left" style="font-size: 10px;"><span>{{$grade->grade_point}}</span></td>
+                                                        </tr>
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                                <!-- Score Guide Ends -->
                                             </div>
+                                            <!-- Non-Academic Record Ends-->
 
-                                            <div class="flex justify-between">
-                                                <h2 class="font-semibold">Date:</h2>
-                                                <h2 class="font-semibold uppercase">Controller of the Examinations</h2>
+                                            <!-- Remarks Starts -->
+                                            <div id="remarks" class="px-3 justify-end items-end">
+                                                <div class="my-6">
+                                                    <p class="mb-6">Prepared by:</p>
+                                                    <p class="">Compared by:</p>
+                                                </div>
+
+                                                <div class="flex justify-between">
+                                                    <h2 class="font-semibold">Date:</h2>
+                                                    <h2 class="font-semibold uppercase">Controller of the Examinations</h2>
+                                                </div>
                                             </div>
+                                            <!-- Remarks Ends -->
                                         </div>
-                                        <!-- Remarks Ends -->
+                                </div>
                                 </div>
                             </div>
-                        </div>
                         </x-html-print>
 
                         <br>
