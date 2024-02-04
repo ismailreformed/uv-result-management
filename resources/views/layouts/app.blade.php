@@ -18,6 +18,22 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+        <style>
+            /* CSS for printing */
+            @media print {
+                /* Hide page header and footer */
+                @page {
+                    size: auto; /* auto is the default value */
+                    margin: 0; /* zero out the page margins */
+                }
+
+                body {
+                    margin: 30px; /* zero out the body margins */
+                }
+            }
+        </style>
+
+
         <!-- Styles -->
         @livewireStyles
     </head>
