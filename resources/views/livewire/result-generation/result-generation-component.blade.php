@@ -142,7 +142,7 @@
                                         <!-- Student Profile Ends-->
 
                                         <!-- Academic Record Starts-->
-                                        <div id="academicRecord" class="grid px-3 pt-2 gap-0">
+                                        <div id="academicRecord" class="grid px-3 pt-2 gap-0 min-h-[380px]">
                                             <!-- Subject Scores Starts -->
                                             <table class="table-fixed text-center">
                                                 <thead>
@@ -156,6 +156,16 @@
                                                 <tbody>
                                                     @foreach($results as $result)
                                                         <tr>
+                                                            <td class="border border-slate-400 text-sm text-left px-2 py-0.5"><span>{{ $result['subject_name'] }}</span></td>
+                                                            <td class="border border-slate-400 text-sm text-left pl-10 py-0.5"><span>{{ $result['subject_code'] }}</span></td>
+                                                            <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['credit_hours'] }}</span></td>
+                                                            <td class="border border-slate-400 text-sm text-left py-0.5 pl-14"><span>{{ $result['grade_letter'] }}</span></td>
+                                                        </tr><tr>
+                                                            <td class="border border-slate-400 text-sm text-left px-2 py-0.5"><span>{{ $result['subject_name'] }}</span></td>
+                                                            <td class="border border-slate-400 text-sm text-left pl-10 py-0.5"><span>{{ $result['subject_code'] }}</span></td>
+                                                            <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['credit_hours'] }}</span></td>
+                                                            <td class="border border-slate-400 text-sm text-left py-0.5 pl-14"><span>{{ $result['grade_letter'] }}</span></td>
+                                                        </tr><tr>
                                                             <td class="border border-slate-400 text-sm text-left px-2 py-0.5"><span>{{ $result['subject_name'] }}</span></td>
                                                             <td class="border border-slate-400 text-sm text-left pl-10 py-0.5"><span>{{ $result['subject_code'] }}</span></td>
                                                             <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['credit_hours'] }}</span></td>

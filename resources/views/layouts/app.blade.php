@@ -28,7 +28,7 @@
                 }
 
                 body {
-                    margin-top: 20px;
+                    margin-top: 30px;
                     margin-left: 30px;
                     margin-right: 30px;
                     margin-bottom: 0px;
