@@ -33,6 +33,7 @@ class ResultGenerationComponent extends Component
     public $tabs = ['Individual Result', 'Combined Result'];
     public $activeTab = 'Individual Result';
 
+
     public function changeTab($tab)
     {
         $this->activeTab = $tab;

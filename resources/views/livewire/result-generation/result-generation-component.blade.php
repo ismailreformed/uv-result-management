@@ -89,57 +89,36 @@
                                 <div class="flex justify-center">
                                     <div class="grid grid-cols-1 gap-0 ">
                                         <!-- School Header Starts-->
-                                        <div id="schoolHeader" class="flex justify-around items-center px-3 gap-4">
-                                            <div class="grid grid-rows-auto gap-1 py-2 text-center rounded ">
-                                                <span class="text-xl font-semibold uppercase">
+                                        <div id="schoolHeader" class="flex justify-center items-center px-3 gap-4 mb-5">
+                                            <div class="grid grid-rows-auto gap-0 py-2 text-center rounded ">
+                                                <span class="text-xl font-black uppercase">
                                                     CHITTAGONG UNIVERSITY OF ENGINEERING & TECHNOLOGY
                                                 </span>
-                                                <span class="text-md font-semibold">
-                                                    Dept. of {{ $department_name }} <br>
+                                                <span class="text-md uppercase">
+                                                    (ERSTWHILE BANGLADESH INSTITUTE OF TECHNOLOGY, CHITTAGONG.)
                                                 </span>
-                                                <span class="text-lg font-bold uppercase">Grade Sheet</span>
+                                                <span class="text-md font-semibold uppercase">
+                                                    CHATTOGRAM-4349, BANGLADESH
+                                                </span>
+                                                <span class="text-lg font-bold underline my-2">Grade Sheet</span>
+                                                <span class="text-lg font-bold">
+                                                    {{ $semester ? $semester['name'] : '' }} {{ $department_name }} Degree
+                                                </span>
                                             </div>
+                                            <br>
                                         </div>
                                         <!-- School Header Ends-->
 
-                                        <!-- Student Profile Starts-->
-                                        <div id="studentProfile" class="flex justify-start items-center px-3 gap-4">
-                                            <div class="grid grid-cols-2 gap-4">
-                                                <!-- Left column (keys) -->
-                                                <div class="text-gray-600 w-28">
-                                                    <span class="font-semibold text-md">
-                                                        Name <br>
-                                                    </span>
-                                                    <span class="font-semibold text-md">
-                                                        Student ID <br>
-                                                    </span>
-                                                    <span class="font-semibold text-md">
-                                                        Semester <br>
-                                                    </span>
-                                                    <span class="font-semibold text-md">
-                                                        Exam <br>
-                                                    </span>
-                                                    <!-- Add more keys as needed -->
-                                                </div>
+                                        <div id="studentProfile" class="px-3 justify-end items-end">
+                                            <p class="mb-4">
+                                                <span class="font-semibold">Name : </span>{{ $student ? $student['name'] : '' }}
+                                            </p>
 
-                                                <!-- Right column (values) -->
-                                                <div class="">
-                                                    <span class="text-md">
-                                                        : {{ $student ? $student['name'] : '' }} <br>
-                                                    </span>
-                                                    <span class="text-md">
-                                                        : {{ $student ? $student['roll'] : '' }}<br>
-                                                    </span>
-                                                    <span class="text-md">
-                                                        : {{ $semester ? $semester['name'] : '' }} <br>
-                                                    </span>
-                                                    <span class="text-md">
-                                                        : {{ $exam ? $exam['name'] : '' }} <br>
-                                                    </span>
-                                                </div>
+                                            <div class="flex justify-between mb-6">
+                                                <p> <span class="font-semibold">Student ID : </span>{{ $student ? $student['roll'] : '' }}</p>
+                                                <p> <span class="font-semibold">Date of Enrollment : </span></p>
                                             </div>
                                         </div>
-                                        <!-- Student Profile Ends-->
 
                                         <!-- Academic Record Starts-->
                                         <div id="academicRecord" class="grid px-3 pt-2 gap-0 min-h-[380px]">
@@ -147,10 +126,10 @@
                                             <table class="table-fixed text-center">
                                                 <thead>
                                                     <tr class="font-semibold">
-                                                        <th class="px-2 py-1 border border-slate-400 text-sm text-left w-96">Descriptive Title of the Courses</th>
+                                                        <th class="px-2 py-1 border border-slate-400 text-sm text-left w-96 uppercase">Descriptive Title of the Courses</th>
                                                         <th class="border border-slate-400 text-sm w-32">Course Number</th>
                                                         <th class="border border-slate-400 text-sm w-32">Credit Hours</th>
-                                                        <th class="border border-slate-400 text-sm w-32">Grade Obtained</th>
+                                                        <th class="border border-slate-400 text-sm w-28">Grade</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -180,34 +159,28 @@
 
                                         <div id="footerItem" style="margin-top: auto;">
                                             <!-- Non-Academic Record Starts-->
-                                            <div class="grid grid-cols-3 px-3 py-0 gap-1 justify-start">
+                                            <div class="grid grid-cols-1 px-3 py-0 gap-1 justify-start">
                                                 <!-- Score Guide Starts -->
-                                                <table class="table-fixed">
-                                                    <thead class="text-center">
-                                                    <tr>
-                                                        <th class="border px-1.5 text-left" style="font-size: 10px;">Marks</th>
-                                                        <th class="border" style="font-size: 10px;">Letter Grade</th>
-                                                        <th class="border" style="font-size: 10px;">Grade Point</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    @foreach($grades as $grade)
-                                                        <tr>
-                                                            <td class="border px-1.5" style="font-size: 10px;"><span>{{$grade->title}}</span></td>
-                                                            <td class="border p-0 pl-8 text-left" style="font-size: 10px;"><span>{{$grade->grade_letter}}</span></td>
-                                                            <td class="border p-0 pl-6 text-left" style="font-size: 10px;"><span>{{$grade->grade_point}}</span></td>
-                                                        </tr>
-                                                    @endforeach
-                                                    </tbody>
-                                                </table>
+                                                <span class="text-sm">
+                                                     <span class="font-semibold text-sm">Grade Point:</span>
+                                                     @foreach($grades as $grade)
+                                                         @if(!empty($grade->grade_point))
+                                                            <span>{{$grade->grade_letter}}</span> = <span>{{ number_format((float) $grade->grade_point, 2)}}</span>,
+                                                         @elseif($grade->grade_letter == 'F')
+                                                            <span>{{$grade->grade_letter}}</span> = <span>{{ number_format((float) $grade->grade_point, 2)}}</span>,
+                                                         @elseif($grade->grade_letter == 'S' || $grade->grade_letter == 'W')
+                                                            <span>{{$grade->grade_letter}}</span> = <span>{{ $grade->title}}</span>,
+                                                         @endif
+                                                     @endforeach
+                                                </span>
                                                 <!-- Score Guide Ends -->
                                             </div>
                                             <!-- Non-Academic Record Ends-->
 
                                             <!-- Remarks Starts -->
                                             <div id="remarks" class="px-3 justify-end items-end">
-                                                <div class="my-6">
-                                                    <p class="mb-6">Prepared by:</p>
+                                                <div class="my-10 font-semibold">
+                                                    <p class="mb-8">Prepared by:</p>
                                                     <p class="">Compared by:</p>
                                                 </div>
 
@@ -228,6 +201,143 @@
 
                 @elseif($activeTab === 'Combined Result')
                     <div class="overflow-x-auto">
+                        <div class="border-b border-gray-200 mb-4">
+                            <div class="grid grid-cols-5 gap-4 px-6 py-4 justify-center items-end">
+                                <div class="grid-cols-2">
+                                    <h5 class="text-md text-start font-medium text-gray-900">Select Department</h5>
+                                    <select
+                                        wire:model.live.debounce.50ms="department_name"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                                    >
+                                        <option value="" disabled>Select Department</option>
+                                        @foreach($departments as $department)
+                                            <option value="{{ $department->name }}">{{ $department->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="grid-cols-2">
+                                    <h5 class="text-md text-start font-medium text-gray-900">Select Semester</h5>
+                                    <select
+                                        wire:model.live.debounce.50ms="semester_id"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                                    >
+                                        <option value="" disabled>Select Semester</option>
+                                        @foreach($semesters as $item)
+                                            <option
+                                                value="{{ $item->id }}"
+                                            >{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('semester_id') <span class="error text-red-600">{{ $message }}</span> @enderror
+                                </div>
+
+                                <div class="grid-cols-2">
+                                    <h5 class="text-md text-start font-medium text-gray-900">Select Exam</h5>
+                                    <select
+                                        wire:model.live.debounce.50ms="exam_id"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                                    >
+                                        <option value="" disabled>Select Exam</option>
+                                        @foreach($exams as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('exam_id') <span class="error text-red-600">{{ $message }}</span> @enderror
+                                </div>
+
+                                <div class="grid-cols-1">
+                                    <button
+                                        type="submit"
+                                        class="px-4 py-2 bg-blue-500 text-white rounded-lg justify-center items-end"
+                                        wire:click="searchResult"
+                                    >
+                                        Search
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <x-html-print>
+                            <div class="m-7" id="printIndividualResult" style=" min-height: 100vh; display: flex; flex-direction: column;">
+                                <div class="flex justify-center">
+                                    <div class="grid grid-cols-1 gap-0 ">
+                                        <!-- School Header Starts-->
+                                        <div id="schoolHeader" class="flex justify-around items-center px-3 gap-2">
+                                            <div class="grid grid-rows-auto gap-0 py-1 text-center rounded ">
+                                                <span class="text-lg font-semibold uppercase">
+                                                    CHITTAGONG UNIVERSITY OF ENGINEERING & TECHNOLOGY
+                                                </span>
+                                                <span class="text-sm font-semibold">
+                                                    Dept. of {{ $department_name }} <br>
+                                                </span>
+                                                <span class="text-sm font-semibold">
+                                                    {{ $semester ? $semester['name'] : '' }} <br>
+                                                </span>
+                                                <span class="text-md font-bold uppercase">Combined Grade Sheet</span>
+                                            </div>
+                                        </div>
+                                        <!-- School Header Ends-->
+
+                                        <!-- Academic Record Starts-->
+                                        <div id="academicRecord" class="grid px-3 pt-2 gap-0">
+                                            <!-- Subject Scores Starts -->
+                                            <table class="table-fixed text-center">
+                                                <thead>
+                                                <tr class="font-semibold">
+                                                    <th rowspan="2" class="px-2 py-1 border border-slate-400 text-sm text-left w-10">SL</th>
+                                                    <th rowspan="2" class="border border-slate-400 text-sm w-28">Student ID</th>
+                                                    <th rowspan="2" class="border border-slate-400 text-left pl-2 text-sm w-44">Student Name</th>
+                                                    <th rowspan="2" class="border border-slate-400 text-sm w-24">Credit Earned</th>
+                                                    <th rowspan="2" class="border border-slate-400 text-sm w-20">G.P Earned</th>
+                                                    <th rowspan="2" class="border border-slate-400 text-sm w-12">GPA</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($results as $result)
+                                                    <tr>
+                                                        <td class="border border-slate-400 text-sm text-left px-2 py-0.5"><span>{{ $result['subject_name'] }}</span></td>
+                                                        <td class="border border-slate-400 text-sm text-left pl-3 py-0.5"><span>{{ $result['subject_code'] }}</span></td>
+                                                        <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['credit_hours'] }}</span></td>
+                                                        <td class="border border-slate-400 text-sm text-left py-0.5 pl-14"><span>{{ $result['grade_letter'] }}</span></td>
+                                                    </tr>
+                                                @endforeach
+                                                @if($gpa)
+                                                    <tr>
+                                                        <td class="text-right text-md font-semibold"></td>
+                                                        <td class="text-right text-md font-semibold"></td>
+                                                        <td class="text-right text-md font-semibold"></td>
+                                                        <td class="text-center text-md font-semibold ">GPA = {{$gpa}}</td>
+                                                    </tr>
+                                                @endif
+                                                </tbody>
+                                            </table>
+                                            <!-- Subject Scores Starts -->
+
+                                            <br>
+                                        </div>
+                                        <!-- Academic Record Ends-->
+
+                                        <div id="footerItem" style="margin-top: auto;">
+                                            <!-- Remarks Starts -->
+                                            <div id="remarks" class="px-3 justify-end items-end">
+                                                <div class="my-6">
+                                                    <p class="mb-6">Prepared by:</p>
+                                                    <p class="">Compared by:</p>
+                                                </div>
+
+                                                <div class="flex justify-between">
+                                                    <h2 class="font-semibold">Date:</h2>
+                                                    <h2 class="font-semibold uppercase">Controller of the Examinations</h2>
+                                                </div>
+                                            </div>
+                                            <!-- Remarks Ends -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </x-html-print>
+
+                        <br>
                     </div>
                 @endif
             </div>
