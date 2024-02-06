@@ -90,14 +90,15 @@
                                     <div class="grid grid-cols-1 gap-0 ">
                                         <!-- School Header Starts-->
                                         <div id="schoolHeader" class="flex justify-center items-center px-3 gap-4 mb-5">
-                                            <div class="grid grid-rows-auto gap-0 py-2 text-center rounded ">
+                                            <div class="grid grid-rows-auto gap-0 py-2 text-center items-center rounded ">
+                                                <img class="mx-auto" width="150" height="170" src="{{ asset('images/logo.png') }}" alt="logo">
                                                 <span class="text-xl font-black uppercase">
                                                     CHITTAGONG UNIVERSITY OF ENGINEERING & TECHNOLOGY
                                                 </span>
-                                                <span class="text-md uppercase">
+                                                <span class="text-md font-semibold uppercase text-gray-700">
                                                     (ERSTWHILE BANGLADESH INSTITUTE OF TECHNOLOGY, CHITTAGONG.)
                                                 </span>
-                                                <span class="text-md font-semibold uppercase">
+                                                <span class="text-md font-semibold uppercase text-gray-900">
                                                     CHATTOGRAM-4349, BANGLADESH
                                                 </span>
                                                 <span class="text-lg font-bold underline my-2">Grade Sheet</span>
@@ -125,11 +126,11 @@
                                             <!-- Subject Scores Starts -->
                                             <table class="table-fixed text-center">
                                                 <thead>
-                                                    <tr class="font-semibold">
-                                                        <th class="px-2 py-1 border border-slate-400 text-sm text-left w-96 uppercase">Descriptive Title of the Courses</th>
-                                                        <th class="border border-slate-400 text-sm w-32">Course Number</th>
-                                                        <th class="border border-slate-400 text-sm w-32">Credit Hours</th>
-                                                        <th class="border border-slate-400 text-sm w-28">Grade</th>
+                                                    <tr class="font-semibold text-md">
+                                                        <th class="px-2 py-1 border border-slate-400 text-left w-100 uppercase">Descriptive Title of the Courses</th>
+                                                        <th class="border border-slate-400 w-36">Course Number</th>
+                                                        <th class="border border-slate-400 w-32">Credit Hours</th>
+                                                        <th class="border border-slate-400 w-24">Grade</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
