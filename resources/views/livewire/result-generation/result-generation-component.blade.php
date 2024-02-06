@@ -81,6 +81,31 @@
                                         Search
                                     </button>
                                 </div>
+
+                                <div class="grid-cols-2">
+                                    <h5 class="text-md text-start font-medium text-gray-900">Prepared By</h5>
+                                    <input
+                                        placeholder="Enter Prepared by name"
+                                        wire:model.live.debounce.50ms="prepared_by"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                                    />
+                                </div>
+                                <div class="grid-cols-2">
+                                    <h5 class="text-md text-start font-medium text-gray-900">Compared By</h5>
+                                    <input
+                                        placeholder="Enter Compared by name"
+                                        wire:model.live.debounce.50ms="compared_by"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                                    />
+                                </div>
+                                <div class="grid-cols-2">
+                                    <h5 class="text-md text-start font-medium text-gray-900">Enrollment Date</h5>
+                                    <input
+                                        type="date"
+                                        wire:model.live.debounce.50ms="enrollment_date"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                                    />
+                                </div>
                             </div>
                         </div>
 
@@ -90,7 +115,7 @@
                                     <div class="grid grid-cols-1 gap-0 ">
                                         <!-- School Header Starts-->
                                         <div id="schoolHeader" class="flex justify-center items-center px-3 gap-4 mb-5">
-                                            <div class="grid grid-rows-auto gap-0 py-2 text-center items-center rounded ">
+                                            <div class="grid grid-rows-auto gap-0 pb-2 text-center items-center rounded ">
                                                 <img class="mx-auto" width="150" height="170" src="{{ asset('images/logo.png') }}" alt="logo">
                                                 <span class="text-xl font-black uppercase">
                                                     CHITTAGONG UNIVERSITY OF ENGINEERING & TECHNOLOGY
@@ -115,9 +140,9 @@
                                                 <span class="font-semibold">Name : </span>{{ $student ? $student['name'] : '' }}
                                             </p>
 
-                                            <div class="flex justify-between mb-6">
+                                            <div class="flex justify-between mb-4">
                                                 <p> <span class="font-semibold">Student ID : </span>{{ $student ? $student['roll'] : '' }}</p>
-                                                <p> <span class="font-semibold">Date of Enrollment : </span></p>
+                                                <p> <span class="font-semibold">Date of Enrollment : </span> {{ $enrollment_date ? \Carbon\Carbon::parse($enrollment_date)->format('d/m/y') : '' }}</p>
                                             </div>
                                         </div>
 
@@ -180,9 +205,9 @@
 
                                             <!-- Remarks Starts -->
                                             <div id="remarks" class="px-3 justify-end items-end">
-                                                <div class="my-10 font-semibold">
-                                                    <p class="mb-10">Prepared by:</p>
-                                                    <p class="">Compared by:</p>
+                                                <div class="my-12">
+                                                    <p class="mb-12"><span class="font-semibold min-w-[180px] ">Prepared by</span> : {{ $prepared_by }}</p>
+                                                    <p><span class="font-semibold min-w-[180px]">Compared by</span> : {{ $compared_by }}</p>
                                                 </div>
 
                                                 <div class="flex justify-between items-center">

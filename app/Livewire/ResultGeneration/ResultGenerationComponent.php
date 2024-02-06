@@ -22,6 +22,9 @@ class ResultGenerationComponent extends Component
     public $semester_id = '';
     #[Validate]
     public $exam_id = '';
+    public $prepared_by = '';
+    public $compared_by = '';
+    public $enrollment_date = '';
     public $department_name = '';
 
     public $student = '';
