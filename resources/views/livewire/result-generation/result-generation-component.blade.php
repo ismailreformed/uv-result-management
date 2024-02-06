@@ -110,13 +110,13 @@
                         </div>
 
                         <x-html-print>
-                            <div class="m-7" id="printIndividualResult" style=" min-height: 100vh; display: flex; flex-direction: column;">
+                            <div class="m-7 px-2" id="printIndividualResult" style=" min-height: 100vh; display: flex; flex-direction: column;">
                                 <div class="flex justify-center">
                                     <div class="grid grid-cols-1 gap-0 ">
                                         <!-- School Header Starts-->
                                         <div id="schoolHeader" class="flex justify-center items-center px-3 gap-4 mb-5">
                                             <div class="grid grid-rows-auto gap-0 pb-2 text-center items-center rounded ">
-                                                <img class="mx-auto" width="150" height="170" src="{{ asset('images/logo.png') }}" alt="logo">
+                                                <img class="mx-auto" width="140" height="160" src="{{ asset('images/logo.png') }}" alt="logo">
                                                 <span class="text-xl font-black uppercase">
                                                     CHITTAGONG UNIVERSITY OF ENGINEERING & TECHNOLOGY
                                                 </span>
@@ -152,15 +152,35 @@
                                             <table class="table-fixed text-center">
                                                 <thead>
                                                     <tr class="font-semibold text-md">
-                                                        <th class="px-2 py-1 border border-slate-400 text-left w-100 uppercase">Descriptive Title of the Courses</th>
-                                                        <th class="border border-slate-400 w-36">Course Number</th>
-                                                        <th class="border border-slate-400 w-32">Credit Hours</th>
-                                                        <th class="border border-slate-400 w-24">Grade</th>
+                                                        <th class="px-2 py-1 border border-slate-400 text-left w-112 uppercase">Descriptive Title of the Courses</th>
+                                                        <th class="border border-slate-400 w-36 text-center">Course Number</th>
+                                                        <th class="border border-slate-400 w-28">Credit Hours</th>
+                                                        <th class="border border-slate-400 w-20">Grade</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     @foreach($results as $result)
                                                         <tr>
+                                                            <td class="border border-slate-400 text-sm text-left px-2 py-0.5"><span>{{ $result['subject_name'] }}</span></td>
+                                                            <td class="border border-slate-400 text-sm text-left pl-3 py-0.5"><span>{{ $result['subject_code'] }}</span></td>
+                                                            <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['credit_hours'] }}</span></td>
+                                                            <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['grade_letter'] }}</span></td>
+                                                        </tr> <tr>
+                                                            <td class="border border-slate-400 text-sm text-left px-2 py-0.5"><span>{{ $result['subject_name'] }}</span></td>
+                                                            <td class="border border-slate-400 text-sm text-left pl-3 py-0.5"><span>{{ $result['subject_code'] }}</span></td>
+                                                            <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['credit_hours'] }}</span></td>
+                                                            <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['grade_letter'] }}</span></td>
+                                                        </tr> <tr>
+                                                            <td class="border border-slate-400 text-sm text-left px-2 py-0.5"><span>{{ $result['subject_name'] }}</span></td>
+                                                            <td class="border border-slate-400 text-sm text-left pl-3 py-0.5"><span>{{ $result['subject_code'] }}</span></td>
+                                                            <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['credit_hours'] }}</span></td>
+                                                            <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['grade_letter'] }}</span></td>
+                                                        </tr> <tr>
+                                                            <td class="border border-slate-400 text-sm text-left px-2 py-0.5"><span>{{ $result['subject_name'] }}</span></td>
+                                                            <td class="border border-slate-400 text-sm text-left pl-3 py-0.5"><span>{{ $result['subject_code'] }}</span></td>
+                                                            <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['credit_hours'] }}</span></td>
+                                                            <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['grade_letter'] }}</span></td>
+                                                        </tr> <tr>
                                                             <td class="border border-slate-400 text-sm text-left px-2 py-0.5"><span>{{ $result['subject_name'] }}</span></td>
                                                             <td class="border border-slate-400 text-sm text-left pl-3 py-0.5"><span>{{ $result['subject_code'] }}</span></td>
                                                             <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['credit_hours'] }}</span></td>
@@ -171,8 +191,7 @@
                                                         <tr>
                                                             <td class="text-right text-md font-semibold"></td>
                                                             <td class="text-right text-md font-semibold"></td>
-                                                            <td class="text-right text-md font-semibold"></td>
-                                                            <td class="text-center text-md font-semibold ">GPA = {{$gpa}}</td>
+                                                            <td colspan="2" class="text-right pr-3 text-md font-semibold">GPA = {{$gpa}}</td>
                                                         </tr>
                                                     @endif
                                                 </tbody>
