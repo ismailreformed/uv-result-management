@@ -185,8 +185,9 @@
                                                     <p class="">Compared by:</p>
                                                 </div>
 
-                                                <div class="flex justify-between">
+                                                <div class="flex justify-between items-center">
                                                     <h2 class="font-semibold">Date: {{ \Carbon\Carbon::now()->format('F d, Y')}}.</h2>
+                                                    <span class="text-xs">Official Seal</span>
                                                     <h2 class="font-semibold uppercase">Controller of the Examinations</h2>
                                                 </div>
                                             </div>
