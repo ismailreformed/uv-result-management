@@ -180,12 +180,12 @@
                                             <!-- Remarks Starts -->
                                             <div id="remarks" class="px-3 justify-end items-end">
                                                 <div class="my-10 font-semibold">
-                                                    <p class="mb-8">Prepared by:</p>
+                                                    <p class="mb-10">Prepared by:</p>
                                                     <p class="">Compared by:</p>
                                                 </div>
 
                                                 <div class="flex justify-between">
-                                                    <h2 class="font-semibold">Date:</h2>
+                                                    <h2 class="font-semibold">Date: {{ \Carbon\Carbon::now()->format('F d, Y')}}.</h2>
                                                     <h2 class="font-semibold uppercase">Controller of the Examinations</h2>
                                                 </div>
                                             </div>
