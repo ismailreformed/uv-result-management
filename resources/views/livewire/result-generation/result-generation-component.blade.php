@@ -165,26 +165,6 @@
                                                             <td class="border border-slate-400 text-sm text-left pl-3 py-0.5"><span>{{ $result['subject_code'] }}</span></td>
                                                             <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['credit_hours'] }}</span></td>
                                                             <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['grade_letter'] }}</span></td>
-                                                        </tr> <tr>
-                                                            <td class="border border-slate-400 text-sm text-left px-2 py-0.5"><span>{{ $result['subject_name'] }}</span></td>
-                                                            <td class="border border-slate-400 text-sm text-left pl-3 py-0.5"><span>{{ $result['subject_code'] }}</span></td>
-                                                            <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['credit_hours'] }}</span></td>
-                                                            <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['grade_letter'] }}</span></td>
-                                                        </tr> <tr>
-                                                            <td class="border border-slate-400 text-sm text-left px-2 py-0.5"><span>{{ $result['subject_name'] }}</span></td>
-                                                            <td class="border border-slate-400 text-sm text-left pl-3 py-0.5"><span>{{ $result['subject_code'] }}</span></td>
-                                                            <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['credit_hours'] }}</span></td>
-                                                            <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['grade_letter'] }}</span></td>
-                                                        </tr> <tr>
-                                                            <td class="border border-slate-400 text-sm text-left px-2 py-0.5"><span>{{ $result['subject_name'] }}</span></td>
-                                                            <td class="border border-slate-400 text-sm text-left pl-3 py-0.5"><span>{{ $result['subject_code'] }}</span></td>
-                                                            <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['credit_hours'] }}</span></td>
-                                                            <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['grade_letter'] }}</span></td>
-                                                        </tr> <tr>
-                                                            <td class="border border-slate-400 text-sm text-left px-2 py-0.5"><span>{{ $result['subject_name'] }}</span></td>
-                                                            <td class="border border-slate-400 text-sm text-left pl-3 py-0.5"><span>{{ $result['subject_code'] }}</span></td>
-                                                            <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['credit_hours'] }}</span></td>
-                                                            <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['grade_letter'] }}</span></td>
                                                         </tr>
                                                     @endforeach
                                                     @if($gpa)
