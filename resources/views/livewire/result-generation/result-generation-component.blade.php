@@ -232,14 +232,15 @@
                                 <div class="grid-cols-2">
                                     <h5 class="text-md text-start font-medium text-gray-900">Select Department</h5>
                                     <select
-                                        wire:model.live.debounce.50ms="department_name"
+                                        wire:model.live.debounce.50ms="department_id"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                                     >
                                         <option value="" disabled>Select Department</option>
                                         @foreach($departments as $department)
-                                            <option value="{{ $department->name }}">{{ $department->name }}</option>
+                                            <option value="{{ $department->id }}">{{ $department->name }}</option>
                                         @endforeach
                                     </select>
+                                    @error('department_id') <span class="error text-red-600">{{ $message }}</span> @enderror
                                 </div>
                                 <div class="grid-cols-2">
                                     <h5 class="text-md text-start font-medium text-gray-900">Select Semester</h5>
@@ -275,10 +276,28 @@
                                     <button
                                         type="submit"
                                         class="px-4 py-2 bg-blue-500 text-white rounded-lg justify-center items-end"
-                                        wire:click="searchResult"
+                                        wire:click="searchCombinedResult"
                                     >
                                         Search
                                     </button>
+                                </div>
+
+                                <br>
+                                <div class="grid-cols-2">
+                                    <h5 class="text-md text-start font-medium text-gray-900">Prepared By</h5>
+                                    <input
+                                        placeholder="Enter Prepared by name"
+                                        wire:model.live.debounce.50ms="prepared_by"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                                    />
+                                </div>
+                                <div class="grid-cols-2">
+                                    <h5 class="text-md text-start font-medium text-gray-900">Compared By</h5>
+                                    <input
+                                        placeholder="Enter Compared by name"
+                                        wire:model.live.debounce.50ms="compared_by"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -288,19 +307,16 @@
                                 <div class="flex justify-center">
                                     <div class="grid grid-cols-1 gap-0 ">
                                         <!-- School Header Starts-->
-                                        <div id="schoolHeader" class="flex justify-around items-center px-3 gap-2">
-                                            <div class="grid grid-rows-auto gap-0 py-1 text-center rounded ">
-                                                <span class="text-lg font-semibold uppercase">
+                                        <div id="schoolHeader" class="flex justify-center items-center px-3 gap-4 mb-5">
+                                            <div class="grid grid-rows-auto gap-0 pb-2 text-center items-center rounded ">
+                                                <img class="mx-auto" width="140" height="160" src="{{ asset('images/logo.png') }}" alt="logo">
+                                                <span class="text-xl font-black uppercase">
                                                     CHITTAGONG UNIVERSITY OF ENGINEERING & TECHNOLOGY
                                                 </span>
-                                                <span class="text-sm font-semibold">
-                                                    Dept. of {{ $department_name }} <br>
-                                                </span>
-                                                <span class="text-sm font-semibold">
-                                                    {{ $semester ? $semester['name'] : '' }} <br>
-                                                </span>
-                                                <span class="text-md font-bold uppercase">Combined Grade Sheet</span>
+                                                <span class="text-lg font-bold">Combined Grade Sheet For {{ $semester ? $semester['name'] : '' }}</span>
+                                                <span class="text-lg font-bold">Department of {{ $department_name }}</span>
                                             </div>
+                                            <br>
                                         </div>
                                         <!-- School Header Ends-->
 
@@ -311,30 +327,42 @@
                                                 <thead>
                                                 <tr class="font-semibold">
                                                     <th rowspan="2" class="px-2 py-1 border border-slate-400 text-sm text-left w-10">SL</th>
-                                                    <th rowspan="2" class="border border-slate-400 text-sm w-28">Student ID</th>
-                                                    <th rowspan="2" class="border border-slate-400 text-left pl-2 text-sm w-44">Student Name</th>
-                                                    <th rowspan="2" class="border border-slate-400 text-sm w-24">Credit Earned</th>
-                                                    <th rowspan="2" class="border border-slate-400 text-sm w-20">G.P Earned</th>
+                                                    <th rowspan="2" class="border border-slate-400 text-sm w-28">Roll</th>
+                                                    <th rowspan="2" class="border border-slate-400 text-sm w-44">Name</th>
+                                                    @foreach($uniqueSubjects as $subject)
+                                                        <th class="border border-slate-400 text-center text-sm w-24">
+                                                            <div class="border-b border-slate-400">{{$subject['subject_code']}}</div>
+                                                            <div>{{$subject['credit_hours']}}</div>
+                                                        </th>
+                                                    @endforeach
+                                                    <th rowspan="2" class="border border-slate-400 text-sm w-20">Credit Earned</th>
+                                                    <th rowspan="2" class="border border-slate-400 text-sm w-16">G.P Earned</th>
                                                     <th rowspan="2" class="border border-slate-400 text-sm w-12">GPA</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach($results as $result)
+                                                @foreach($combinedResults as $key => $result)
                                                     <tr>
-                                                        <td class="border border-slate-400 text-sm text-left px-2 py-0.5"><span>{{ $result['subject_name'] }}</span></td>
-                                                        <td class="border border-slate-400 text-sm text-left pl-3 py-0.5"><span>{{ $result['subject_code'] }}</span></td>
-                                                        <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['credit_hours'] }}</span></td>
-                                                        <td class="border border-slate-400 text-sm text-left py-0.5 pl-14"><span>{{ $result['grade_letter'] }}</span></td>
+                                                        <td class="border border-slate-400 text-sm text-left px-2 py-0.5"><span>{{ $key }}</span></td>
+                                                        <td class="border border-slate-400 text-sm text-left pl-2 py-0.5"><span>{{ $result['roll'] }}</span></td>
+                                                        <td class="border border-slate-400 text-sm text-left pl-2 py-0.5"><span>{{ $result['name'] }}</span></td>
+                                                        @foreach($uniqueSubjects as $subjectCode => $subject)
+                                                            @php
+                                                                $subjectMark = $result['marks']->firstWhere('subject_code', $subjectCode);
+                                                            @endphp
+                                                            <td class="border border-slate-400 text-sm text-center py-0.5">
+                                                                @if($subjectMark)
+                                                                    {{ $subjectMark['credit_earned'] }}
+                                                                @else
+                                                                    -
+                                                                @endif
+                                                            </td>
+                                                        @endforeach
+                                                        <td class="border border-slate-400 text-sm py-0.5"><span>{{ $result['credit_earned'] }}</span></td>
+                                                        <td class="border border-slate-400 text-sm py-0.5"><span>{{ $result['gp_earned'] }}</span></td>
+                                                        <td class="border border-slate-400 text-sm py-0.5"><span>{{ $result['gpa'] }}</span></td>
                                                     </tr>
                                                 @endforeach
-                                                @if($gpa)
-                                                    <tr>
-                                                        <td class="text-right text-md font-semibold"></td>
-                                                        <td class="text-right text-md font-semibold"></td>
-                                                        <td class="text-right text-md font-semibold"></td>
-                                                        <td class="text-center text-md font-semibold ">GPA = {{$gpa}}</td>
-                                                    </tr>
-                                                @endif
                                                 </tbody>
                                             </table>
                                             <!-- Subject Scores Starts -->
@@ -346,13 +374,14 @@
                                         <div id="footerItem" style="margin-top: auto;">
                                             <!-- Remarks Starts -->
                                             <div id="remarks" class="px-3 justify-end items-end">
-                                                <div class="my-6">
-                                                    <p class="mb-6">Prepared by:</p>
-                                                    <p class="">Compared by:</p>
+                                                <div class="my-12">
+                                                    <p class="mb-12"><span class="font-semibold min-w-[180px] ">Prepared by</span> : {{ $prepared_by }}</p>
+                                                    <p><span class="font-semibold min-w-[180px]">Compared by</span> : {{ $compared_by }}</p>
                                                 </div>
 
-                                                <div class="flex justify-between">
-                                                    <h2 class="font-semibold">Date:</h2>
+                                                <div class="flex justify-between items-center">
+                                                    <h2 class="font-semibold">Date: {{ \Carbon\Carbon::now()->format('F d, Y')}}.</h2>
+                                                    <span class="text-xs">Official Seal</span>
                                                     <h2 class="font-semibold uppercase">Controller of the Examinations</h2>
                                                 </div>
                                             </div>
