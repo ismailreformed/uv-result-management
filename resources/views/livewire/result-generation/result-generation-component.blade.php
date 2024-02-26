@@ -299,6 +299,22 @@
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                                     />
                                 </div>
+                                <div class="grid-cols-2">
+                                    <h5 class="text-md text-start font-medium text-gray-900">Chairman</h5>
+                                    <input
+                                        placeholder="Enter Chairman name"
+                                        wire:model.live.debounce.50ms="chairman"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                                    />
+                                </div>
+                                <div class="grid-cols-2">
+                                    <h5 class="text-md text-start font-medium text-gray-900">Controller of Exams.</h5>
+                                    <input
+                                        placeholder="Enter Controller of exams name"
+                                        wire:model.live.debounce.50ms="controller_of_exams"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                                    />
+                                </div>
                             </div>
                         </div>
 
@@ -374,15 +390,36 @@
                                         <div id="footerItem" style="margin-top: auto;">
                                             <!-- Remarks Starts -->
                                             <div id="remarks" class="px-3 justify-end items-end">
-                                                <div class="my-12">
-                                                    <p class="mb-12"><span class="font-semibold min-w-[180px] ">Prepared by</span> : {{ $prepared_by }}</p>
-                                                    <p><span class="font-semibold min-w-[180px]">Compared by</span> : {{ $compared_by }}</p>
+                                                <div class="flex justify-between items-center mt-12">
+                                                    <p class="font-semibold min-w-[180px] text-center">
+                                                        Prepared by
+                                                        <br>
+                                                        ( {{ $prepared_by }} )
+                                                        <br>
+                                                        Assistant Programmer
+                                                    </p>
+                                                    <p class="font-semibold min-w-[180px] text-center">
+                                                        ( {{ $chairman }} )
+                                                        <br>
+                                                        Chairman
+                                                        <br>
+                                                        Examination Committee
+                                                    </p>
+                                                    <p class="font-semibold min-w-[180px] text-center">
+                                                        ( {{ $controller_of_exams }} )
+                                                        <br>
+                                                        Controller of Exams.
+                                                    </p>
                                                 </div>
 
-                                                <div class="flex justify-between items-center">
-                                                    <h2 class="font-semibold">Date: {{ \Carbon\Carbon::now()->format('F d, Y')}}.</h2>
-                                                    <span class="text-xs">Official Seal</span>
-                                                    <h2 class="font-semibold uppercase">Controller of the Examinations</h2>
+                                                <div class="flex justify-between items-center mt-14">
+                                                    <p class="font-semibold min-w-[180px] text-center">
+                                                        Compared by
+                                                        <br>
+                                                        ( {{ $prepared_by }} )
+                                                        <br>
+                                                        Associate Professor
+                                                    </p>
                                                 </div>
                                             </div>
                                             <!-- Remarks Ends -->

@@ -32,6 +32,8 @@ class ResultGenerationComponent extends Component
     public $exam_id = '';
     public $prepared_by = '';
     public $compared_by = '';
+    public $chairman = '';
+    public $controller_of_exams = '';
     public $enrollment_date = '';
     public $department_name = '';
 
