@@ -326,16 +326,16 @@
                                             <table class="table-fixed text-center">
                                                 <thead>
                                                 <tr class="font-semibold">
-                                                    <th rowspan="2" class="px-2 py-1 border border-slate-400 text-sm text-left w-10">SL</th>
+                                                    <th rowspan="2" class="px-2 py-1 border border-slate-400 text-sm text-left w-8">SL</th>
                                                     <th rowspan="2" class="border border-slate-400 text-sm w-28">Roll</th>
                                                     <th rowspan="2" class="border border-slate-400 text-sm w-44">Name</th>
                                                     @foreach($uniqueSubjects as $subject)
-                                                        <th class="border border-slate-400 text-center text-sm w-24">
+                                                        <th class="border border-slate-400 text-center text-sm w-20">
                                                             <div class="border-b border-slate-400">{{$subject['subject_code']}}</div>
                                                             <div>{{$subject['credit_hours']}}</div>
                                                         </th>
                                                     @endforeach
-                                                    <th rowspan="2" class="border border-slate-400 text-sm w-20">Credit Earned</th>
+                                                    <th rowspan="2" class="border border-slate-400 text-sm w-16">Credit Earned</th>
                                                     <th rowspan="2" class="border border-slate-400 text-sm w-16">G.P Earned</th>
                                                     <th rowspan="2" class="border border-slate-400 text-sm w-12">GPA</th>
                                                 </tr>
