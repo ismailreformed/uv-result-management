@@ -28,12 +28,12 @@
                                 <div class="grid-cols-2">
                                     <h5 class="text-md text-start font-medium text-gray-900">Select Department</h5>
                                     <select
-                                        wire:model.live.debounce.50ms="department_name"
+                                        wire:model.live.debounce.50ms="department_id"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                                     >
                                         <option value="" disabled>Select Department</option>
                                         @foreach($departments as $department)
-                                            <option value="{{ $department->name }}">{{ $department->name }}</option>
+                                            <option value="{{ $department->id }}">{{ $department->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -109,7 +109,7 @@
                             </div>
                         </div>
 
-                        <x-html-print>
+                        <x-html-print orientation="portrait">
                             <div class="m-7 px-2" id="printIndividualResult" style=" min-height: 100vh; display: flex; flex-direction: column;">
                                 <div class="flex justify-center">
                                     <div class="grid grid-cols-1 gap-0 ">
@@ -318,14 +318,14 @@
                             </div>
                         </div>
 
-                        <x-html-print>
+                        <x-html-print orientation="landscape">
                             <div class="m-7" id="printIndividualResult" style=" min-height: 100vh; display: flex; flex-direction: column;">
                                 <div class="flex justify-center">
                                     <div class="grid grid-cols-1 gap-0 ">
                                         <!-- School Header Starts-->
-                                        <div id="schoolHeader" class="flex justify-center items-center px-3 gap-4 mb-5">
+                                        <div id="schoolHeader" class="flex justify-center items-center px-3 gap-4 mb-2">
                                             <div class="grid grid-rows-auto gap-0 pb-2 text-center items-center rounded ">
-                                                <img class="mx-auto" width="140" height="160" src="{{ asset('images/logo.png') }}" alt="logo">
+                                                <img class="mx-auto" width="120" height="140" src="{{ asset('images/logo.png') }}" alt="logo">
                                                 <span class="text-xl font-black uppercase">
                                                     CHITTAGONG UNIVERSITY OF ENGINEERING & TECHNOLOGY
                                                 </span>
@@ -337,7 +337,7 @@
                                         <!-- School Header Ends-->
 
                                         <!-- Academic Record Starts-->
-                                        <div id="academicRecord" class="grid px-3 pt-2 gap-0">
+                                        <div id="academicRecord" class="grid px-3 gap-0">
                                             <!-- Subject Scores Starts -->
                                             <table class="table-fixed text-center">
                                                 <thead>
@@ -390,7 +390,7 @@
                                         <div id="footerItem" style="margin-top: auto;">
                                             <!-- Remarks Starts -->
                                             <div id="remarks" class="px-3 justify-end items-end">
-                                                <div class="flex justify-between items-center mt-12">
+                                                <div class="flex justify-between items-center mt-8">
                                                     <p class="font-semibold min-w-[180px] text-center">
                                                         Prepared by
                                                         <br>
@@ -412,7 +412,7 @@
                                                     </p>
                                                 </div>
 
-                                                <div class="flex justify-between items-center mt-14">
+                                                <div class="flex justify-between items-center mt-10">
                                                     <p class="font-semibold min-w-[180px] text-center">
                                                         Compared by
                                                         <br>

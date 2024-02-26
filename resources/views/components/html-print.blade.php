@@ -1,9 +1,12 @@
+@props(['orientation'])
+
 <div
     x-data="{
-		printDiv() {
+		printDiv(orientation) {
 			var printContents = this.$refs.container.innerHTML.trim();
 			var originalContents = document.body.innerHTML;
 			document.body.innerHTML = printContents;
+			document.body.style.orientation = orientation; // Set page orientation
 			window.print();
 			document.body.innerHTML = originalContents;
 		}
@@ -16,7 +19,7 @@
         <button
             type="button"
             class="px-4 py-2 bg-blue-900 text-white rounded-lg justify-center items-end"
-            x-on:click="printDiv()">Print</button>
+            x-on:click="printDiv('{{$orientation}}')">Print</button>
     </div>
 
     {{ $slot }}

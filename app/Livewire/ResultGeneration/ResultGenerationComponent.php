@@ -46,7 +46,7 @@ class ResultGenerationComponent extends Component
     public array $uniqueSubjects = [];
 
     public $tabs = ['Individual Result', 'Combined Result'];
-    public $activeTab = 'Combined Result';
+    public $activeTab = 'Individual Result';
 
 
     public function changeTab($tab)
@@ -61,13 +61,10 @@ class ResultGenerationComponent extends Component
         $this->student_id = $student['id'];
     }
 
-    public function mount()
+    public function updatedDepartmentId($value)
     {
-        $this->exams = Exam::all();
-        $this->grades = Grade::all()->sortByDesc('id');
-        $this->semesters = Semester::all();
-        $this->departments = Department::all();
-        $this->department_name = '';
+        $department = Department::find($value);
+        $this->department_name = $department->name;
     }
 
     public function updatedSemesterId($value)
@@ -80,6 +77,14 @@ class ResultGenerationComponent extends Component
         $this->exam = Exam::find($value);
     }
 
+    public function mount()
+    {
+        $this->exams = Exam::all();
+        $this->grades = Grade::all()->sortByDesc('id');
+        $this->semesters = Semester::all();
+        $this->departments = Department::all();
+        $this->department_name = '';
+    }
 
     public function rules()
     {
