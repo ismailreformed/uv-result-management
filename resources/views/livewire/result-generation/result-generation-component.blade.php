@@ -368,7 +368,7 @@
                                                             @endphp
                                                             <td class="border border-slate-400 text-sm text-center py-0.5">
                                                                 @if($subjectMark)
-                                                                    {{ $subjectMark['credit_earned'] }}
+                                                                    {{ $subjectMark['grade_letter'] }}
                                                                 @else
                                                                     -
                                                                 @endif
