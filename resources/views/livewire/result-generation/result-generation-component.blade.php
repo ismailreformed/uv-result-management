@@ -126,8 +126,8 @@
                                                 <span class="uppercase text-gray-700" style="font-family: Albertus, sans-serif; font-size: 11px;">
                                                     CHATTOGRAM-4349, BANGLADESH
                                                 </span>
-{{--                                                <span class="text-lg font-bold underline my-2" >Grade Sheet</span>--}}
-                                                <span class="font-bold" style="font-family: 'Times New Roman', sans-serif; font-size: 13px; font-weight: bold">
+                                                <span class="text-base font-bold underline my-1" style="font-family: 'Times New Roman', sans-serif;">Grade Sheet</span>
+                                                <span class="font-bold" style="font-family: 'Times New Roman', sans-serif; font-size: 16px; font-weight: bold">
                                                     {{ $semester ? $semester['name'] : '' }} {{ $department_name }} Degree
                                                 </span>
                                             </div>
@@ -136,11 +136,11 @@
                                         <!-- School Header Ends-->
 
                                         <div id="studentProfile" class="px-3 justify-end items-end">
-                                            <p class="mb-4" style="font-family: 'Times New Roman', sans-serif; font-size: 12px;">
+                                            <p class="mb-4" style="font-family: 'Times New Roman', sans-serif; font-size: 16px;">
                                                 <span class="font-bold">Name : </span>{{ $student ? $student['name'] : '' }}
                                             </p>
 
-                                            <div class="flex justify-between mb-4" style="font-family: 'Times New Roman', sans-serif; font-size: 12px;">
+                                            <div class="flex justify-between mb-4" style="font-family: 'Times New Roman', sans-serif; font-size: 16px;">
                                                 <p> <span class="font-bold">Student ID : </span>{{ $student ? $student['roll'] : '' }}</p>
                                                 <p> <span class="font-bold">Date of Enrollment : </span> {{ $enrollment_date ? \Carbon\Carbon::parse($enrollment_date)->format('d/m/y') : '' }}</p>
                                             </div>
@@ -149,29 +149,29 @@
                                         <!-- Academic Record Starts-->
                                         <div id="academicRecord" class="grid px-3 pt-2 gap-0 min-h-[380px]">
                                             <!-- Subject Scores Starts -->
-                                            <table class="table-fixed text-center" style="font-family: 'Times New Roman', sans-serif; font-size: 10px;">
+                                            <table class="table-fixed text-center" >
                                                 <thead>
-                                                    <tr class="font-bold text-md">
+                                                    <tr class="font-bold text-md" style="font-family: 'Times New Roman', sans-serif; font-size: 14px;">
                                                         <th class="px-2 py-1 border border-slate-400 text-left w-112 uppercase">Descriptive Title of the Courses</th>
-                                                        <th class="border border-slate-400 w-36 text-center">Course Number</th>
+                                                        <th class="border border-slate-400 w-36 pl-2 text-left">Course Number</th>
                                                         <th class="border border-slate-400 w-28">Credit Hours</th>
                                                         <th class="border border-slate-400 w-20">Grade</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     @foreach($results as $result)
-                                                        <tr>
-                                                            <td class="border border-slate-400 text-sm text-left px-2 py-0.5"><span>{{ $result['subject_name'] }}</span></td>
-                                                            <td class="border border-slate-400 text-sm text-left pl-3 py-0.5"><span>{{ $result['subject_code'] }}</span></td>
-                                                            <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{  number_format((float) $result['credit_hours'], 2) }}</span></td>
-                                                            <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['grade_letter'] }}</span></td>
+                                                        <tr style="font-family: 'Times New Roman', sans-serif; font-size: 15px;">
+                                                            <td class="border border-slate-400 text-left px-2 py-0.5"><span>{{ $result['subject_name'] }}</span></td>
+                                                            <td class="border border-slate-400 text-left pl-2 py-0.5"><span>{{ $result['subject_code'] }}</span></td>
+                                                            <td class="border border-slate-400 text-center py-0.5"><span>{{  number_format((float) $result['credit_hours'], 2) }}</span></td>
+                                                            <td class="border border-slate-400 text-center py-0.5"><span>{{ $result['grade_letter'] }}</span></td>
                                                         </tr>
                                                     @endforeach
                                                     @if($gpa)
                                                         <tr>
                                                             <td class="text-right text-md font-semibold"></td>
                                                             <td class="text-right text-md font-semibold"></td>
-                                                            <td colspan="2" class="text-right pr-3" style="font-family: 'Times New Roman', sans-serif; font-size: 12px; font-weight: bold">GPA = {{$gpa}}</td>
+                                                            <td colspan="2" class="text-right pr-3" style="font-family: 'Times New Roman', sans-serif; font-size: 16px; font-weight: bold">GPA = {{$gpa}}</td>
                                                         </tr>
                                                     @endif
                                                 </tbody>
@@ -186,7 +186,7 @@
                                             <!-- Non-Academic Record Starts-->
                                             <div class="grid grid-cols-1 px-3 py-0 gap-1 justify-start">
                                                 <!-- Score Guide Starts -->
-                                                <span style="font-family: 'Times New Roman', sans-serif; font-size: 12px;">
+                                                <span style="font-family: 'Times New Roman', sans-serif; font-size: 13px;">
                                                      <span class="font-bold">Grade Point:</span>
                                                      @foreach($grades as $grade)
                                                          @if(!empty($grade->grade_point))
@@ -204,14 +204,14 @@
 
                                             <!-- Remarks Starts -->
                                             <div id="remarks" class="px-3 justify-end items-end">
-                                                <div class="my-12" style="font-family: 'Times New Roman', sans-serif; font-size: 12px; font-weight: bold">
+                                                <div class="my-12" style="font-family: 'Times New Roman', sans-serif; font-size: 14px; font-weight: bold">
                                                     <p class="mb-12"><span class="min-w-[180px] ">Prepared by</span> : {{ $prepared_by }}</p>
                                                     <p><span class="min-w-[180px]">Compared by</span> : {{ $compared_by }}</p>
                                                 </div>
 
-                                                <div class="flex justify-between items-center" style="font-family: 'Times New Roman', sans-serif; font-size: 12px; font-weight: bold">
+                                                <div class="flex justify-between items-center" style="font-family: 'Times New Roman', sans-serif; font-size: 14px; font-weight: bold">
                                                     <h2>Date: {{ \Carbon\Carbon::now()->format('F d, Y')}}.</h2>
-                                                    <span style="font-size: 8px;">Official Seal</span>
+                                                    <span style="font-size: 9px;">Official Seal</span>
                                                     <h2 class="uppercase">Controller of the Examinations</h2>
                                                 </div>
                                             </div>
