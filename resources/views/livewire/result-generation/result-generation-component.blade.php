@@ -117,17 +117,17 @@
                                         <div id="schoolHeader" class="flex justify-center items-center px-3 gap-4 mb-5">
                                             <div class="grid grid-rows-auto gap-0 pb-2 text-center items-center rounded ">
                                                 <img class="mx-auto" width="140" height="160" src="{{ asset('images/logo.png') }}" alt="logo">
-                                                <span class="text-xl font-black uppercase">
+                                                <span class="font-black uppercase" style="font-family: Albertus, sans-serif; font-size: 14px;">
                                                     CHITTAGONG UNIVERSITY OF ENGINEERING & TECHNOLOGY
                                                 </span>
-                                                <span class="text-md font-semibold uppercase text-gray-700">
+                                                <span class="uppercase text-gray-700" style="font-family: Albertus, sans-serif; font-size: 12px;">
                                                     (ERSTWHILE BANGLADESH INSTITUTE OF TECHNOLOGY, CHITTAGONG.)
                                                 </span>
-                                                <span class="text-md font-semibold uppercase text-gray-900">
+                                                <span class="uppercase text-gray-700" style="font-family: Albertus, sans-serif; font-size: 11px;">
                                                     CHATTOGRAM-4349, BANGLADESH
                                                 </span>
-                                                <span class="text-lg font-bold underline my-2">Grade Sheet</span>
-                                                <span class="text-lg font-bold">
+{{--                                                <span class="text-lg font-bold underline my-2" >Grade Sheet</span>--}}
+                                                <span class="font-bold" style="font-family: 'Times New Roman', sans-serif; font-size: 13px; font-weight: bold">
                                                     {{ $semester ? $semester['name'] : '' }} {{ $department_name }} Degree
                                                 </span>
                                             </div>
@@ -136,22 +136,22 @@
                                         <!-- School Header Ends-->
 
                                         <div id="studentProfile" class="px-3 justify-end items-end">
-                                            <p class="mb-4">
-                                                <span class="font-semibold">Name : </span>{{ $student ? $student['name'] : '' }}
+                                            <p class="mb-4" style="font-family: 'Times New Roman', sans-serif; font-size: 12px;">
+                                                <span class="font-bold">Name : </span>{{ $student ? $student['name'] : '' }}
                                             </p>
 
-                                            <div class="flex justify-between mb-4">
-                                                <p> <span class="font-semibold">Student ID : </span>{{ $student ? $student['roll'] : '' }}</p>
-                                                <p> <span class="font-semibold">Date of Enrollment : </span> {{ $enrollment_date ? \Carbon\Carbon::parse($enrollment_date)->format('d/m/y') : '' }}</p>
+                                            <div class="flex justify-between mb-4" style="font-family: 'Times New Roman', sans-serif; font-size: 12px;">
+                                                <p> <span class="font-bold">Student ID : </span>{{ $student ? $student['roll'] : '' }}</p>
+                                                <p> <span class="font-bold">Date of Enrollment : </span> {{ $enrollment_date ? \Carbon\Carbon::parse($enrollment_date)->format('d/m/y') : '' }}</p>
                                             </div>
                                         </div>
 
                                         <!-- Academic Record Starts-->
                                         <div id="academicRecord" class="grid px-3 pt-2 gap-0 min-h-[380px]">
                                             <!-- Subject Scores Starts -->
-                                            <table class="table-fixed text-center">
+                                            <table class="table-fixed text-center" style="font-family: 'Times New Roman', sans-serif; font-size: 10px;">
                                                 <thead>
-                                                    <tr class="font-semibold text-md">
+                                                    <tr class="font-bold text-md">
                                                         <th class="px-2 py-1 border border-slate-400 text-left w-112 uppercase">Descriptive Title of the Courses</th>
                                                         <th class="border border-slate-400 w-36 text-center">Course Number</th>
                                                         <th class="border border-slate-400 w-28">Credit Hours</th>
@@ -163,7 +163,7 @@
                                                         <tr>
                                                             <td class="border border-slate-400 text-sm text-left px-2 py-0.5"><span>{{ $result['subject_name'] }}</span></td>
                                                             <td class="border border-slate-400 text-sm text-left pl-3 py-0.5"><span>{{ $result['subject_code'] }}</span></td>
-                                                            <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['credit_hours'] }}</span></td>
+                                                            <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{  number_format((float) $result['credit_hours'], 2) }}</span></td>
                                                             <td class="border border-slate-400 text-sm text-center py-0.5"><span>{{ $result['grade_letter'] }}</span></td>
                                                         </tr>
                                                     @endforeach
@@ -171,7 +171,7 @@
                                                         <tr>
                                                             <td class="text-right text-md font-semibold"></td>
                                                             <td class="text-right text-md font-semibold"></td>
-                                                            <td colspan="2" class="text-right pr-3 text-md font-semibold">GPA = {{$gpa}}</td>
+                                                            <td colspan="2" class="text-right pr-3" style="font-family: 'Times New Roman', sans-serif; font-size: 12px; font-weight: bold">GPA = {{$gpa}}</td>
                                                         </tr>
                                                     @endif
                                                 </tbody>
@@ -186,8 +186,8 @@
                                             <!-- Non-Academic Record Starts-->
                                             <div class="grid grid-cols-1 px-3 py-0 gap-1 justify-start">
                                                 <!-- Score Guide Starts -->
-                                                <span class="text-sm">
-                                                     <span class="font-semibold text-sm">Grade Point:</span>
+                                                <span style="font-family: 'Times New Roman', sans-serif; font-size: 12px;">
+                                                     <span class="font-bold">Grade Point:</span>
                                                      @foreach($grades as $grade)
                                                          @if(!empty($grade->grade_point))
                                                             <span>{{$grade->grade_letter}}</span> = <span>{{ number_format((float) $grade->grade_point, 2)}}</span>,
@@ -204,15 +204,15 @@
 
                                             <!-- Remarks Starts -->
                                             <div id="remarks" class="px-3 justify-end items-end">
-                                                <div class="my-12">
-                                                    <p class="mb-12"><span class="font-semibold min-w-[180px] ">Prepared by</span> : {{ $prepared_by }}</p>
-                                                    <p><span class="font-semibold min-w-[180px]">Compared by</span> : {{ $compared_by }}</p>
+                                                <div class="my-12" style="font-family: 'Times New Roman', sans-serif; font-size: 12px; font-weight: bold">
+                                                    <p class="mb-12"><span class="min-w-[180px] ">Prepared by</span> : {{ $prepared_by }}</p>
+                                                    <p><span class="min-w-[180px]">Compared by</span> : {{ $compared_by }}</p>
                                                 </div>
 
-                                                <div class="flex justify-between items-center">
-                                                    <h2 class="font-semibold">Date: {{ \Carbon\Carbon::now()->format('F d, Y')}}.</h2>
-                                                    <span class="text-xs">Official Seal</span>
-                                                    <h2 class="font-semibold uppercase">Controller of the Examinations</h2>
+                                                <div class="flex justify-between items-center" style="font-family: 'Times New Roman', sans-serif; font-size: 12px; font-weight: bold">
+                                                    <h2>Date: {{ \Carbon\Carbon::now()->format('F d, Y')}}.</h2>
+                                                    <span style="font-size: 8px;">Official Seal</span>
+                                                    <h2 class="uppercase">Controller of the Examinations</h2>
                                                 </div>
                                             </div>
                                             <!-- Remarks Ends -->
@@ -436,3 +436,4 @@
         </div>
     </section>
 </div>
+
