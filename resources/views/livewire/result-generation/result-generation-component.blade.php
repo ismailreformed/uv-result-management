@@ -147,7 +147,7 @@
                                         </div>
 
                                         <!-- Academic Record Starts-->
-                                        <div id="academicRecord" class="grid px-3 pt-2 gap-0 min-h-[380px]">
+                                        <div id="academicRecord" class="grid px-3 pt-2 gap-0" style="margin-bottom: {{$this->tableBottomBorder()}}px;">
                                             <!-- Subject Scores Starts -->
                                             <table class="table-fixed text-center" >
                                                 <thead>
@@ -160,7 +160,7 @@
                                                 </thead>
                                                 <tbody>
                                                     @foreach($results as $result)
-                                                        <tr style="font-family: 'Times New Roman', sans-serif; font-size: 15px;">
+                                                        <tr style="font-family: 'Times New Roman', sans-serif; font-size: 15px; width: 26px;">
                                                             <td class="border border-slate-400 text-left px-2 py-0.5"><span>{{ $result['subject_name'] }}</span></td>
                                                             <td class="border border-slate-400 text-left pl-2 py-0.5"><span>{{ $result['subject_code'] }}</span></td>
                                                             <td class="border border-slate-400 text-center py-0.5"><span>{{  number_format((float) $result['credit_hours'], 2) }}</span></td>
@@ -177,7 +177,6 @@
                                                 </tbody>
                                             </table>
                                             <!-- Subject Scores Starts -->
-
                                             <br>
                                         </div>
                                         <!-- Academic Record Ends-->

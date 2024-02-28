@@ -48,7 +48,6 @@ class ResultGenerationComponent extends Component
     public $tabs = ['Individual Result', 'Combined Result'];
     public $activeTab = 'Individual Result';
 
-
     public function changeTab($tab)
     {
         $this->activeTab = $tab;
@@ -75,6 +74,11 @@ class ResultGenerationComponent extends Component
     public function updatedExamId($value)
     {
         $this->exam = Exam::find($value);
+    }
+
+    public function tableBottomBorder()
+    {
+        return (string) (360 - (40 * count($this->results) <= 9 ? count($this->results) : 9));
     }
 
     public function mount()
@@ -116,11 +120,11 @@ class ResultGenerationComponent extends Component
             ];
         })->toArray();
 
-        $this->gpa = round($marks->sum(function ($result) {
+        $this->gpa = count($this->results) ? round($marks->sum(function ($result) {
             return $result->credit_earned;
         }) / $marks->sum(function ($result) {
                 return $result->subject->credit_hours;
-            }), 3);
+            }), 3) : '';
     }
 
     public function searchCombinedResult()
