@@ -117,7 +117,7 @@
                                         <div id="schoolHeader" class="flex justify-center items-center px-3 gap-4 mb-5">
                                             <div class="grid grid-rows-auto gap-0 pb-2 text-center items-center rounded ">
                                                 <img class="mx-auto" width="140" height="160" src="{{ asset('images/logo.png') }}" alt="logo">
-                                                <span class="font-black uppercase" style="font-family: Albertus, sans-serif; font-size: 14px;">
+                                                <span class="font-black uppercase" style="font-family: Albertus, sans-serif; font-size: 16px;">
                                                     CHITTAGONG UNIVERSITY OF ENGINEERING & TECHNOLOGY
                                                 </span>
                                                 <span class="uppercase text-gray-700" style="font-family: Albertus, sans-serif; font-size: 12px;">
@@ -153,7 +153,7 @@
                                                 <thead>
                                                     <tr class="font-bold text-md" style="font-family: 'Times New Roman', sans-serif; font-size: 14px;">
                                                         <th class="px-2 py-1 border border-slate-400 text-left w-112 uppercase">Descriptive Title of the Courses</th>
-                                                        <th class="border border-slate-400 w-36 pl-2 text-left">Course Number</th>
+                                                        <th class="border border-slate-400 w-36 pl-2">Course Number</th>
                                                         <th class="border border-slate-400 w-28">Credit Hours</th>
                                                         <th class="border border-slate-400 w-20">Grade</th>
                                                     </tr>
@@ -162,9 +162,9 @@
                                                     @foreach($results as $result)
                                                         <tr style="font-family: 'Times New Roman', sans-serif; font-size: 15px; width: 26px;">
                                                             <td class="border border-slate-400 text-left px-2 py-0.5"><span>{{ $result['subject_name'] }}</span></td>
-                                                            <td class="border border-slate-400 text-left pl-2 py-0.5"><span>{{ $result['subject_code'] }}</span></td>
-                                                            <td class="border border-slate-400 text-center py-0.5"><span>{{  number_format((float) $result['credit_hours'], 2) }}</span></td>
-                                                            <td class="border border-slate-400 text-center py-0.5"><span>{{ $result['grade_letter'] }}</span></td>
+                                                            <td class="border border-slate-400 pl-2 py-0.5 text-left"><span>{{ $result['subject_code'] }}</span></td>
+                                                            <td class="border border-slate-400 py-0.5"><span>{{  number_format((float) $result['credit_hours'], 2) }}</span></td>
+                                                            <td class="border border-slate-400 py-0.5"><span>{{ $result['grade_letter'] }}</span></td>
                                                         </tr>
                                                     @endforeach
                                                     @if($gpa)

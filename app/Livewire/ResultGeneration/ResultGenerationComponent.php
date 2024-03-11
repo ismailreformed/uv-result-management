@@ -78,7 +78,7 @@ class ResultGenerationComponent extends Component
 
     public function tableBottomBorder()
     {
-        return (string) (360 - (40 * count($this->results) <= 9 ? count($this->results) : 9));
+        return (string) (360 - (44 * (min(count($this->results), 9))));
     }
 
     public function mount()
@@ -124,7 +124,7 @@ class ResultGenerationComponent extends Component
             return $result->credit_earned;
         }) / $marks->sum(function ($result) {
                 return $result->subject->credit_hours;
-            }), 3) : '';
+            }), 2) : '';
     }
 
     public function searchCombinedResult()
